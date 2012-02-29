@@ -1,0 +1,60 @@
+Lektion 1
+  1 The Language of the Web: getting to know HTML
+    Client/Server Topologie Abriss
+    Erste HTML Datei erstellen
+  2 Meet the ‘HT’ in HTML: going further, with hypertext 
+  3 Web Page Construction: building blocks 
+    Strukturelles Design
+Lektion 2
+  4 A Trip to Webville: getting connected 
+    HTTP Einführung
+    Uniform Resource Locator
+  5 Meeting the Media: adding images to your pages 
+    Bildormate
+  6 Serious HTML: standards, compliance, and all that jazz 
+    HTML Geschichte
+    W3C
+    HTML4.01 vs. HTML5
+Lektion 3
+  7 Putting ‘X’ into HTML: moving to XHTML 
+  8 Adding a Little Style: getting started with CSS 
+    Kaskade der Cascading Style Sheets
+  9 Expanding your Vocabulary: styling with fonts and colors 
+    Fonts, Colors (hex, rgb)
+Lektion 4
+  10 Getting Intimate with Elements: the box model 
+    Positionierung von Elemenen
+  11 Advanced Web Construction: divs and spans 
+  12 Arranging Elements: layout and positioning 
+Lektion 5
+  13 Getting Tabular: tables and lists 
+  14 Getting Interactive: XHTML forms 
+    Form, Select Tags
+    GET Anfragen
+Lektion 6
+  1 Getting to know HTML5: Welcome to Webville
+    Upgrade HTML4.01 -> HTML5
+  2 Introducing JavaScript and the DOM: A Little Code 
+    Einfürhung interaktive Webseiten
+Lektion 7
+  3 Events, Handlers and All That Jazz: A Little Interactivity 
+    Eventbasiertes Programmieren in Javascript
+    Manipulation des DOM
+  4 JavaScript Functions and Objects: Serious JavaScript 
+    Funktionen in Javascript
+    Objekte
+    "this"
+  5 Making Your HTML Location Aware: Geolocation 
+Lektion 8
+  6 Talking to The Web: Extroverted Apps 
+    JSON over HTTP
+Lektion 9
+  7 Bringing Out Your Inner Artist: Canvas 
+    2D Graphik
+  8 Not Your Father’s TV: Video... With Special Guest Star “Canvas” 
+    Video-Tag
+Lektion 10
+  9 Storing Things Locally: Web Storage 
+    Localstorage
+  10 Putting JavaScript to Work: Web Workers 
+    Asynchrones Verarbeiten in Javascript im Browser
