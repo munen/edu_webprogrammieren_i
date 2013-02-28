@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>My todos</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="A localstorage todo list made for the web-development 1 class.">
+		<meta name="author" content="Max Schrimpf">
+
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<link href="css/jquery-ui.css" rel="stylesheet">
+		<style>
+			body {
+				/* responsive design möglich machen */
+				padding-top: 60px; 
+			}
+		</style>
+		<link href="css/bootstrap-responsive.css" rel="stylesheet">
+
+		<link rel="shortcut icon" href="ico/favicon.ico">
+ 
+	</head>
+
+	<body>
+
+		<div class="modal hide fade" id="specialTask">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">×</button>
+				<h3>Aufgabe hinzugef&uuml;gt</h3>
+			</div>
+			<div class="modal-body">
+				<p>Da sie offenbar sonst nichts zu tun haben wurde Ihnen eine wichtige Aufgabe hinzugef&uuml;gt!</p>
+				<p>"F&uuml;r <a href='http://de.wikipedia.org/wiki/Deutsche_Fu%C3%9Fballnationalmannschaft' title='Schalalalaaaaa Schalalalalala'^>Deutschland</a> die Daumen drücken!"</p>
+			</div>
+			<div class="modal-footer">
+				<a href="#" class="btn btn-danger" data-dismiss="modal">Nein ich mag die Düüüütschen nicht!</a>
+				<a href="javascript:specialFeature()" class="btn btn-success">Ja dann halt...</a>
+			</div>
+		</div>
+
+		<div class="modal hide fade" id="myModal">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">×</button>
+				<h3>L&ouml;schen best&auml;tigen</h3>
+			</div>
+			<div class="modal-body">
+				<p>Wollen Sie wirklich l&ouml;schen? Diese Aktion kann nicht r&uuml;ckg&auml;ngig gemacht werden.</p>
+			</div>
+			<div class="modal-footer">
+				<a href="#" class="btn" data-dismiss="modal">Abbrechen</a>
+				<a href="#" id="deleteBtn" class="btn btn-danger btn-primary">Best&auml;tigen</a>
+			</div>
+		</div>
+		
+		<div class="navbar navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</a>
+					<a class="brand" href="../index.html">Webprogrammieren SoSe2012</a>
+					<div class="nav-collapse">
+						<ul class="nav">
+							<li class="active"><a href="#"><i class="icon-home icon-white"></i> Home</a></li>
+							<li><a href="todoAbout.html">About</a></li>
+							<li><a href="todoContact.html">Contact</a></li>
+						</ul>
+					</div><!--/.nav-collapse -->
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="page-header">
+				<h1><img src="logo.png" style="margin-right: 30%" alt="das epische Logo">Todo Liste</h1>
+			</div>
+
+			<div id="saveAlert" class="alert alert-block alert-error fade in hide">
+				<h4 class="alert-heading">Ung&uuml;ltige Eingabe!</h4>
+			</div>
+			
+			<form id="myInput" class="well form-inline">
+				<select name="prio" id="prio" style="width:12.5%" title="Sie k&ouml;nnen eine Priorit&auml;t eingeben">
+					<option value="2">Normal</option>
+					<option value="3">Hoch</option>
+					<option value="1">Niedrig</option>
+				</select>
+				<input name="date" id="date" style="width:12.5%" type="text" placeholder="perDate" title="Bitte geben sie ein Datum ein bis zu dem Die Aufgabe erf&uuml;llt sein muss"/>
+				<input name="subj" id="subj" class="focused" style="width:60%" type="text" placeholder="Aufgabe" title="Bitte geben Sie eine Beschreibung für die Aufgabe ein"/>
+				<button type="submit" style="width:10%" class="btn btn-inverse">Hinzuf&uuml;gen</button>
+			</form>
+			
+			<div id="undoneTasks" class="hide">
+				<h2>zu erledigen</h2>
+				<table class="table">
+				  <thead>
+				    <tr>
+				      <th style="width:10%">Priorit&auml;t</th>
+				      <th style="width:15%">per</th>
+				      <th style="width:65%">Beschreibung</th>
+				      <th style="width:10%"></th>
+				    </tr>
+				  </thead>
+				  <tbody id="undoneTable">
+				  </tbody> 
+				</table>
+			</div>
+			
+			<div id="doneTasks" class="hide">
+				<h2>erledigt</h2>
+				<table class="table">
+				  <thead>
+				    <tr>
+				      <th style="width:10%">Priorit&auml;t</th>
+				      <th style="width:15%">per</th>
+				      <th style="width:65%">Beschreibung</th>
+				      <th style="width:10%"></th>
+				    </tr>
+				  </thead>
+				  <tbody id="doneTable">
+				  </tbody> 
+				</table>
+			</div>
+
+		</div> <!-- /container -->
+	</body>
+
+		<!-- Am Ende der Seite um das Laden/Anzeigen schneller zu machen -->	
+		<script src="js/jquery-1.7.2.min.js"></script>
+		<script src="js/jquery.validate.js"></script>
+		<script src="js/jquery-ui.min.js"></script>
+
+		<script src="js/bootstrap-transition.js"></script>
+		<script src="js/bootstrap-collapse.js"></script>
+		<script src="js/bootstrap-modal.js"></script>
+
+		<script src="js/todo.js"></script>
+</html>

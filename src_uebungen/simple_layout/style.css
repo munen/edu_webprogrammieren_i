@@ -1,0 +1,27 @@
+#footer {
+  bottom: 0px;
+  position: absolute;
+  width: 100%;
+  background: lightgrey;
+}
+
+#header {
+  background: lightgrey;
+  margin-bottom: 5px;
+}
+
+#nav {
+  width: 20%;
+  float: left;
+  background: grey;
+}
+
+#content {
+  float: left;
+  width: 80%;
+  background: darkgrey;
+}
+
+#content p {
+  padding-left: 10px;
+}

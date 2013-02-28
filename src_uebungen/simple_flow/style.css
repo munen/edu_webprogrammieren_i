@@ -1,0 +1,14 @@
+#first {
+  float: left;
+  width: 100px;
+  background-color: green;
+}
+
+p {
+  width: 100%;
+  background-color: lightgrey;
+}
+
+/*p:nth-child(3) {
+  clear: both;
+}*/

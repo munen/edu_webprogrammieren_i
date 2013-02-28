@@ -1,0 +1,54 @@
+\begin{chunk}{non_semantic_html}
+\begin{lstlisting}[frame=single,xleftmargin=5mm, numberstyle=\tiny]
+<h1>Rückblick. Was haben wir gelernt?</h1>
+<p>1. HTML ist semantisch</p>
+<p>2. Das bedeutet Struktur und Repräsentation sind getrennt</p>
+\end{lstlisting}
+\end{chunk}
+
+
+\begin{chunk}{semantic_html}
+\begin{lstlisting}[frame=single,xleftmargin=5mm, numberstyle=\tiny]
+<p>
+  <blockquote>Knowing is not enough; we must apply. Willing is not enough; we must do.</blockquote>
+  [Johann Wolfgang von Goethe]
+</p>
+\end{lstlisting}
+\end{chunk}
+
+
+
+\begin{chunk}{cascade_html}
+\begin{lstlisting}[frame=single,xleftmargin=5mm, numberstyle=\tiny]
+<q id="buddha_quote" style="color: blue;">
+You <span id="q1">will</span> not be <span id="q1" class="q1">punished</span> for your anger, you will be
+punished by your <span class="q1">anger</span>. [Buddha]
+</q>
+\end{lstlisting}
+\end{chunk}
+
+\begin{chunk}{cascade_css}
+\begin{lstlisting}[frame=single,xleftmargin=5mm, numberstyle=\tiny]
+.q1 { color: blue; }
+#budda_quote .q1 { color: red; }
+#q1 { color: green; }
+\end{lstlisting}
+\end{chunk}
+
+
+
+\begin{chunk}{redish}
+\begin{lstlisting}[frame=single,xleftmargin=5mm, numberstyle=\tiny]
+#700000 #780000 #800000 #880000 #900000
+#980000 #A00000 #A80000 #B00000 #B80000
+#C00000 #C80000 #D00000
+\end{lstlisting}
+\end{chunk}
+
+\begin{chunk}{greyish}
+\begin{lstlisting}[frame=single,xleftmargin=5mm, numberstyle=\tiny]
+#707070 #787878 #808080 #888888 #909090
+#989898 #A0A0A0 #A8A8A8 #B0B0B0 #B8B8B8
+#C0C0C0 #C8C8C8 #D0D0D0 #D8D8D8
+\end{lstlisting}
+\end{chunk}

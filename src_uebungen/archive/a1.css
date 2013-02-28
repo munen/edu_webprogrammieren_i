@@ -1,0 +1,14 @@
+.nicy {
+  background: #e1e7f3 url(images/enso.png) no-repeat right;
+  width: 238px;
+  height: 125px;
+
+  font-style: italic;
+  font-family: Georgia, serif;
+  line-height: 1.9em;
+  color: #444;
+
+  border: dashed 2px white;
+  padding: 25px 85px 25px 25px;
+  margin: 30px 650px 30px 30px;
+}

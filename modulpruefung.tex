@@ -1,0 +1,260 @@
+\documentclass[10pt,ngerman]{examdesign}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{graphicx}
+
+\Fullpages
+\NumberOfVersions{2}
+\SectionPrefix{Abschnitt \arabic{sectionindex}. \space}
+\lstset{language=Java,numbers=left}
+\IncludeFromFile{listings.tex}
+
+\begin{document}
+
+\begin{examtop}
+    \parbox{5cm}{
+        Pr\"ufung \\
+        Webprogrammieren I\\
+        Lafon \\
+        }
+    \hfill
+    \parbox{10cm}{
+    Name: \hrulefill\\[6pt]
+    Klasse: \hrulefill\\[6pt]
+    Datum: \hrulefill}
+    \bigskip
+
+\begin{itemize}
+ \item Markieren Sie richtige Antworten mit einem Kreuz.
+ \item Falls Sie sich umentscheiden sollten und eine bereits als richtig
+ markierte Antwort trotzdem als nicht richtig bezeichnen m\"ochten, machen Sie
+ einen Kreis um das Kreuz.
+ \item Pro Frage k\"onnen keine, eine oder mehrere Antworten richtig sein.
+ \item Antworten welche als richtig markiert wurden, jedoch falsch sind, geben
+ einen Punkt Abzug.
+ \item Wenn von einem Programm oder einer Software die Rede ist, dann sind
+ Programme von gr\"osserer Komplexit\"at gemeint (z.B. analog Ihrer Fallstudie,
+ keine Hello-World Programme).
+ \item Falls Ihnen eine Frage nicht klar sein sollte, treffen Sie eine Annahme
+ und halten Sie diese schriftlich fest.
+ \item Sämtliche Arbeiten sind absolut selbständig auszuführen. Wer sich unredlich verhält,
+wird unmittelbar nach Feststellung des Tatbestandes von der Prüfung ausgeschlossen.
+In diesem Fall  gilt die ganze Prüfung als nicht bestanden.  Bei  besonders
+schwerwiegender Unredlichkeit wird der fehlbare Studierende aus der Schule
+ausgeschlossen.
+\end{itemize}
+
+\end{examtop}
+
+\begin{multiplechoice}
+
+  \begin{question}
+    Welche Eigenschaften bringt man mit DNS in Verbindung?
+    \choice[!]{"Hierarchisch"}
+    \choice[!]{"Redundant"}
+    \choice[!]{"Dezentral"}
+    \choice[]{"Flach"}
+    \smallskip
+  \end{question}
+
+
+  \begin{question}
+    Wie heisst die Transportschicht im Browser?
+    \choice[]{"SOAP"}
+    \choice[!]{"HTTP"}
+    \choice[]{"WebDAV"}
+    \choice[]{"REST"}
+    \smallskip
+  \end{question}
+
+
+  \begin{question}
+    Was sind die gängigen Ports für HTTP(S)?
+    \choice[!]{"80"}
+    \choice[]{"21"}
+    \choice[]{"23"}
+    \smallskip
+  \end{question}
+
+
+  \begin{question}
+    Welche Tags sind semantisch?
+    \choice[!]{"q"}
+    \choice[]{"div"}
+    \choice[!]{"a"}
+    \smallskip
+  \end{question}
+
+
+  \begin{question}
+    Welche Tags sind inline(i), welche block(b) Elemente?
+    \answer{b}{"div"}
+    \answer{i}{"span"}
+    \answer{i}{"q"}
+    \answer{b}{"p"}
+    \answer{i}{"a"}
+    \smallskip
+  \end{question}
+
+
+  \begin{question}
+    Nennen Sie stichwortartig Vorteile der besseren Code Beispiels!
+    \InsertChunk{semantic_html}
+    \InsertChunk{non_semantic_html}
+    \bigskip
+  \end{question}
+
+  \begin{question}
+    Notieren Sie die Syntax von URL!
+    \bigskip
+  \end{question}
+
+  \begin{question}
+    Wof\"ur steht URI?
+    \choice[]{"Unique Resource Indicator"}
+    \choice[]{"Uniform Resource Locator"}
+    \choice[!]{"Uniform Resource Identifier"}
+    \choice[!]{"Das ist in Kanton in der Schweiz"}
+    \smallskip
+  \end{question}
+
+  \begin{question}
+    Ihr Kunde m\"ochte eine Webseite haben mit einem animierten
+    Baustellenschild dessen Tooltip lautet: "Hier ensteht eine neue
+    Internetpr\"asenz!". Beim Click auf das Baustellenschild soll sich ein
+    neues Browserfenster mit der alten Webseite des Kunden(c2.com) \"offnen.
+    Schreiben Sie den dazu notwendigen Inhalt des HTML \<body\>!
+    \bigskip
+  \end{question}
+
+  \begin{question}
+    Ihr Kunde m\"ochte nun den Hintergrund blau und das Baustellenschild
+    zentriert! Schreiben Sie dazu den notwendigen HTML und CSS Code!
+    \bigskip
+  \end{question}
+
+  \begin{question}
+    Bringen Sie die folgenden Technologien in die Reihenfolge der jeweiligen
+    Entstehung!
+    \answer{1}{"SGML"}
+    \answer{4}{"HTML5"}
+    \answer{3}{"XHTML1"}
+    \answer{2}{"HTML4"}
+    \smallskip
+  \end{question}
+
+  \begin{question}
+    Wozu dient 'charset' im 'content' Attribut des 'meta' Tags?
+    \bigskip
+  \end{question}
+
+  \begin{question}
+    \InsertChunk{greyish}
+    Was haben die folgenden Farben gemein?
+    \bigskip
+  \end{question}
+
+  \begin{question}
+    \InsertChunk{redish}
+    Was haben die folgenden Farben gemein?
+    \bigskip
+  \end{question}
+
+  \begin{question}
+    Bringen Sie die Begriffe 'padding', 'content', 'margin', 'border'  in Bezug
+    auf das CSS Box Modell in die richtige Reihenfolge
+    \answer{1}{"content"}
+    \answer{2}{"padding"}
+    \answer{3}{"border"}
+    \answer{4}{"margin"}
+    \smallskip
+  \end{question}
+
+
+  %TODO! (padding und so)
+  \begin{question}
+    Skizzieren Sie wie der Browser folgenden Quellcode rendert!
+    \InsertChunk{redish}
+    \InsertChunk{redish}
+    \bigskip
+  \end{question}
+
+  \begin{question}
+    Wann setzt man CSS Pseudo Klassen ein?
+    \bigskip
+    %\choice[!]{"Verschiedene Zust\"ande eines Elementes"}
+    %\choice[!]{"Algorithmische Selektoren(ehemals Javascript)"}
+  \end{question}
+
+  % TODO: Mache HTML/CSS mit überall inline Style => Implizites Abfragen von
+  % "!important"
+  \begin{question}
+    \"Andern Sie den Quellcode so, dass 'foo' rot dargestellt wird.
+    \bigskip
+  \end{question}
+
+  \begin{question}
+    Worin unterscheidet sich das Verhalten von 'margin' bei inline und block
+    Elementen?
+    \bigskip
+    % inline: margins werden addiert, block: margins werden kollabiert
+  \end{question}
+
+  \begin{question}
+    Welche Aussagen treffen auf die Positionierung 'static'(s), 'absolute'(a),
+    'relative'(r), 'fixed'(f) zu?
+    \answer{s} Elemente bewegen sich immer relativ zum normalen Fluss der Seite
+    \answer{f} Elemente bewegen sich nicht, selbst wenn das Fenster scrollt
+    \answer{r} Elemente ist verh\"altnissm\"assig zu seiner normalen Position
+    positioniert
+    \answer{a} Elemente sind relativ zum ersten \"Ubergeordneten Element
+    positioniert, welches nicht 'static' ist
+    \smallskip
+  \end{question}
+
+
+  % TODO: Beschreibe Fibonacci Sequenz aus alter Vorlesung
+  \begin{question}
+    Summieren Sie alle geraden Zahlen der Fibonacci Sequenz von 1 bis 4
+    Millionen.\\
+    \bigskip
+  \end{question}
+
+
+
+
+
+
+
+
+
+  \begin{question}
+    Schauen Sie folgenden erb-Codeblock an. Was ist die Ausgabe? (Nehmen wir an, es ist 12 Uhr mittags)
+    \InsertChunk{erb}
+    \choice[]{"It is now Wed Apr 13 12:00:00 +0200 2011"}
+    \choice[]{"It is now 12:00:00"}
+    \choice[!]{"It is now "}
+    \choice[]{Ein Fehler tritt auf}
+    \smallskip
+  \end{question}
+
+\end{multiplechoice}
+
+
+        Ordnen Sie die folgenden Begriffen den Schichten M(odel), V(iew) oder
+        C(ontrol) zu.
+        \begin{question}
+                        \answer{M} Datenbankzugriff \"uber SQL
+        \end {question}
+        \begin{question}
+                        \answer{M} Datenzugriff \"uber ein XML Framework
+        \end {question}
+        \begin{question}
+                        \answer{V}	Ausgabe der Daten im HTML Format
+        \end {question}
+        \begin{question}
+                        \answer{V} Ausgabe der Daten in XML Format
+        \end {question}
+\end{truefalse}
+
+\end{document}
