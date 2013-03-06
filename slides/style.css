@@ -1,0 +1,16 @@
+.syntax-container { font-size: 17px; }
+
+.slide .syntax-container.syntax-theme-base ol.syntax, h2, h3 {
+  margin-bottom: 0.8em !important;
+}
+
+@media print{
+  @page {
+    /* print in chrome a5 borderless, landscape */
+    size: A5 landscape !important;
+    border: 0px;
+  }
+  .syntax {
+    font-size: 8px !important;
+  }
+}

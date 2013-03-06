@@ -1,0 +1,3472 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>p_slides</title>
+    <link rel="stylesheet" type="text/css" media="screen, projection, print" href="slidy.css" />
+    <link rel="stylesheet" type="text/css" media="screen, print" href="twitter_bootstrap.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <script src="showdown.js"></script>
+    <script src="slidy.js"></script>
+    <script src="jquery-syntax/jquery-1.4.4.min.js"></script>
+    <script src="jquery-syntax/jquery.syntax.min.js"></script>
+</head>
+<body>
+
+<code class="presentation">
+
+# Webprogrammieren I
+
+---
+# Informationen
+## Allgemein
+
+ * Alain M. Lafon
+ * E-Mail: xlaf@zhaw.ch
+ * Webentwickler und Berater bei [panter.ch](http://panter.ch)
+ * Tägliche Arbeit mit: Ruby on Rails, HTML, CSS, Javascript, HAML, SASS,
+ CoffeeScript, jQuery, Ajax, ...
+ * Im letzten Jahr alleine >15 abgeschlossene Web-Projekte
+    * Demo [bandplanet.com](http://bandplanet.com)
+
+---
+# Informationen
+## Allgemein
+
+ * Folien, Aufgaben & Code:
+  * Moodle: Webprogrammieren I FS13 (bestellt)
+ * [Literatur](/Users/preek/Dropbox/Ebooks/Programming/HTML5):
+  * Eric Freeman, Elisabeth Freeman: Head First HTML with CSS & XHTML, O'Reilly 2005
+  * Eric Freeman, Elisabeth Robson: Head First HTML5 Programming, O'Reilly 2011
+  * warum zwei Bücher??
+ * Termine: Athen 07.03. - 18.03.
+
+---
+# Informationen
+## Lernziele
+
+ * Verstehen der Grundlagen von
+  * HTML5
+  * CSS3
+  * Javascript
+ * Erstellen einer einfachen Webseite
+   * Beherrschen von HTML5 in eigenen Projekten
+
+---
+# Informationen
+## Lerninhalte
+
+ * Grundlagen HTML(Geschichte und Herkunft), DOM
+ * HTML5 Syntax, Einsatzgebiete
+ * Parsen und schreiben von HTML5 Dokumenten mit Javascript, Styling mit CSS3
+ * Werkzeuge zum Analysieren von Web Protokollen verwenden
+ * Manipulation des DOM
+ * Praktische Übung, um die Themen zu erproben
+
+---
+# Informationen
+## Besprechung Ablauf
+
+* Lektionenplanung
+ * Kontaktunterricht 20 Lektionen
+ * Begleitetes Selbststudium 30 Lektionen
+ * Individuelles Selbststudium 30 Lektionen
+* Implikationen Lektionenplanung
+ * Von gesamt 60h (80 Lektionen) nur 15h (20 Lektionen) Vorlesung
+ * => Hohe Eigenverantwortung
+
+---
+# Informationen
+## Besprechung Ablauf
+
+* 2 ECTS
+* Projektarbeit
+ * Teil des begleiteten Selbststudiums
+ * Umfang 10h
+ * Mehr dazu gleich
+* 1 schriftliche Klausur am Ende des Semesters
+* optional: Klausuren inmitten des Semesters
+ * gewünscht?
+* Pause in der Mitte der 90min Blöcke
+
+---
+# Informationen
+## Besprechung Ablauf
+
+ * Ich halte die Veranstaltung zum zweiten Mal
+ * Aktive Partizipation notwendig
+  * => Laptops mitbringen
+  * => Kritik erwünscht
+      * Gern während der Vorlesung
+      * oder per E-Mail
+
+---
+# Projektarbeit - Vorschau
+
+ * Projektarbeit Abgabe in ~ KW24
+ * Erstelle Todo Applikation mit
+   * Navigation, Footer, About und Contact
+   * Logo
+   * Priorität (reflektiert in Farbe des Todos)
+   * Persistierende Todos (Localstorage)
+   * [jQuery Datepicker](http://jqueryui.com/demos/datepicker/)
+   * Layout mit [Twitter Bootstrap](http://twitter.github.com/bootstrap/)
+
+---
+# Projektarbeit - Vorschau
+
+![](images/projektarbeit_1.png)
+
+---
+# Projektarbeit - Vorschau
+ * Demo mögliche Projektarbeiten
+      * [Todo App](file:///Users/preek/Dropbox/HSZ-T/webprogrammieren_i/projektarbeit/demo_max/todoMain.html)
+      * [Tic Tac Toe](http://www.christianbachmann.ch/crazy/tictactoe/v06/)
+      * [WebGL 3D](http://anz.github.com/terrain/)
+
+
+---
+# Fragen?
+## Vorkenntnisse?
+## Professionelle Webentwickler im Raum?
+
+---
+# Los geht's!
+
+---
+# Das Web
+## Historische Einbettung - Trivia
+
+ * Wer weiss wo und wann das World Wide Web gegründet wurde?
+
+---
+# Das Web
+## Historische Einbettung
+
+ * 1989 als Projekt im CERN in Genf
+ * Erfinder: Tim Berners-Lee
+ * Erste Webseite: [info.cern.ch](http://www.w3.org/History/19921103-hypertext/hypertext/WWW/TheProject.html)
+
+### Public Announcement im Usenet:
+
+      This project is experimental and of course comes without any warranty
+      whatsoever. However, it could start a revolution in information access. We are
+      currently using WWW for user support at CERN. We would be very interested in
+      comments from anyone trying WWW, and especially those making other data
+      available, as part of a truly world-wide web.
+
+[Originaltext groups.google.com/group/alt.hypertext](http://groups.google.com/group/alt.hypertext/browse_thread/thread/7824e490ea164c06/395f282a67a1916c?#395f282a67a1916c)
+
+---
+# Das Web
+
+## Was macht das Web aus?
+## Wie funktioniert es?
+
+ * High Level Overview
+ * Architektur und Protokolle
+
+
+---
+# Das Web
+## Topologie
+
+### Client - Server
+
+ * Aufgaben und Dienste werden innerhalb eines Netzes verteilt
+ * Clients fordern von Servern gezielt Aufgaben an
+
+---
+# Das Web
+## Topologie
+
+### Client - Server
+
+&nbsp;
+
+ ![](images/client_server_model.svg)
+Quelle: [wikipedia.org](http://en.wikipedia.org/wiki/Client%E2%80%93server_model)
+
+&nbsp;
+
+---
+# Das Web
+## Topologie
+
+### Definition Server
+
+ * Ein Server ist ein Programm (Prozess), das mit einem anderen Programm
+   (Prozess), dem Client, kommuniziert, um ihm Zugang zu einem Dienst zu
+   verschaffen.
+
+### Definition Client
+
+ * Ein Client kann auf Wunsch einen Dienst bei dem Server anfordern, der diesen
+ Dienst bereitstellt.
+
+
+---
+# Topologie
+## Protokolle
+
+### Namensauflösung: DNS (Domain Name System)
+
+ * Assoziiert Informationen zu Hostnamen
+ * Hauptsächlich genutzt als "forward-lookup"
+  * Aus Domain Name IP Adresse nachschlagen
+ * Weltweit verteilter Verzeichnisdienst
+ * Vorteile
+  * Namen sind einfacher zu merken als Zahlenkolonnen
+  * IP Adressen(sprich physikalische Server) können einfach getauscht werden
+  * Einfache Lastverteilung (Load Balancing)
+
+---
+# Topologie
+## Protokolle
+
+### Namensauflösung: DNS (Domain Name System)
+
+  * Funktionsweise
+    * Dezentrale Verwaltung
+        * Aufteilung in Zonen
+    * Eindeutige Namen
+    * Erweiterbarkeit
+    * Hierarchische Baumstrumktur des Namensraums
+
+---
+# Topologie
+## Protokolle
+
+### Namensauflösung: DNS (Domain Name System)
+
+![](images/dns_raum.png)
+Quelle: [wikipedia.org](http://en.wikipedia.org/wiki/Domain_Name_System)
+
+---
+# Topologie
+## Protokolle
+
+### Namensauflösung: DNS (Domain Name System)
+ * IPv4
+  * 32 bit Adressraum
+  * => 2^32 max IP Adressen (4.3 * 10^9)
+     * NB: Seit dem 03.02.2011 keine weiteren IPv4 Adressen mehr
+  * Grund für die Limitierung
+     * IPv4 war nie für die Öffentlichkeit gedacht
+     * War ein Projekt der DARPA (Defense Advanced Research Projects Agency)
+
+---
+# Topologie
+## Protokolle
+
+### Namensauflösung: DNS (Domain Name System)
+
+ * IPv6
+  * Inkompatibel zu IPv4
+  * Grösserer Adressraum
+   * 2^128 oder 3.4*10^38 Adressen
+     * => Jeder Rechner, jedes Stück Ware bekommt lebenslange Adresse
+  * Zwingende Verschlüsselung auf IP Ebene (IPsec)
+  * Effizientere Header-Daten Verarbeitung als IPv4
+
+---
+# Topologie
+## Protokolle
+
+### N.B. IPv6
+
+  * Einige Provider sind noch nicht bereit
+  * WinXP kann (von Haus aus) nur IPv4
+  * Privacy Extensions notwendig für Betriebssysteme, um Tracking auszuschliessen
+   * Das OS generiert temporäre IPv6 Adressen
+   * Default in OSX, iOS, Windows sowie einige Linux Distros
+
+---
+# Beispiel DNS
+
+<pre>
+$dig google.com
+
+; <<>> DiG 9.7.3-P3 <<>> google.com
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 1038
+;; flags: qr rd ra; QUERY: 1, ANSWER: 6, AUTHORITY: 0, ADDITIONAL: 0
+
+;; QUESTION SECTION:
+;google.com.      IN  A
+
+;; ANSWER SECTION:
+google.com.   29  IN  A 209.85.148.138
+google.com.   29  IN  A 209.85.148.139
+google.com.   29  IN  A 209.85.148.101
+google.com.   29  IN  A 209.85.148.102
+google.com.   29  IN  A 209.85.148.113
+google.com.   29  IN  A 209.85.148.100
+
+;; Query time: 199 msec
+;; SERVER: 10.9.11.21#53(10.9.11.21)
+;; WHEN: Mon Feb 27 07:47:33 2012
+;; MSG SIZE  rcvd: 124
+</pre>
+
+---
+# Topologie
+## Protokolle
+
+### HTTP (Hypertext Transfer Protocol)
+
+ * Überträgt Daten über ein Netzwerk
+ * Meist gebraucht im Browser
+  * Aber auch Transportschicht in
+  [RESTful](http://tomayko.com/writings/rest-to-my-wife) Schnittstellen (vgl. [SOA/SOAP](http://en.wikipedia.org/wiki/SOAP))
+ * Zustandlos
+  * Sessions sind Anwendungssache
+
+---
+# Topologie
+## Protokolle
+
+### HTTP (Hypertext Transfer Protocol)
+
+ * Kennt pro Request Header Informationen und Status Codes
+  * Dadurch nicht beschränkt auf Hypertext
+  * WebDAV etwa wird für den Austausch von Daten im Netz genutzt (Folder-Shares)
+
+
+---
+# Topologie
+## Protokolle
+
+### HTTP (Hypertext Transfer Protocol)
+
+### Beispiel
+
+&nbsp;
+![](images/hello_hszt.jpg)
+
+&nbsp;
+
+ * Was geschieht hier im Hintergrund?
+
+---
+# Demo
+
+<pre>
+$ telnet dispatched.ch 80
+Trying 178.79.161.9...
+Connected to dispatched.ch.
+Escape character is '^]'.
+GET /hello_hszt.html HTTP/1.1
+Host: dispatched.ch
+
+HTTP/1.1 200 OK
+Date: Wed, 27 Feb 2013 15:00:32 GMT
+Server: Apache/2.2.16 (Debian) DAV/2 mod_fcgid/2.3.6 PHP/5.3.3-7+squeeze14 with
+Suhosin-Patch mod_ssl/2.2.16 OpenSSL/0.9.8o
+Last-Modified: Wed, 27 Feb 2013 14:57:32 GMT
+Accept-Ranges: bytes
+Content-Length: 16
+Vary: Accept-Encoding
+Content-Type: text/html
+
+Hello Students!
+Connection closed by foreign host.
+</pre>
+
+---
+# Demo WTF?
+## Exkurs telnet
+
+ * telnet ist ein Netzwerkprotokoll
+ * Es ermöglicht zeichenorientierten Datenaustausch zwischen Client und Server
+  * So kann man mit HTTP, SMTP (Mail), FTP (File Transfer), manuell
+  sprechen
+
+---
+# Was zeigt die Demo?
+
+## Anfrage
+
+ * "telnet dispatched.ch 80"
+  * Verbindet zum Server auf Port 80 via TCP (out of scope -> Netzwerk
+  Vorlesung)
+ * "GET /hello\_hszt.html HTTP/1.1"
+  * Fordert die Datei 'hello\_hszt.html' vom Server an
+  * Unter Verwendung von [HTTP Version 1.1](http://tools.ietf.org/html/rfc2616)
+ * "Host: dispatched.ch"
+  * Vervollständigt die Anfrage der Resource: http://dispatched.ch/hello_hszt.html
+
+---
+# Was zeigt die Demo?
+
+## Antwort
+
+ * "HTTP/1.1 200 OK"
+  * Antwortet in HTTP Version 1.1 mit [Status Code](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) 200
+ * Informationen zum Server: Datum, Version des Servers
+ * "Last-Modified"
+  * Caching
+ * "Content-Type: text/html"
+  * Könnte sonst auch Javascript Bilder, Audio, Video, etc, senden
+ * "Hello Students!"
+  * Eigentliche Nutzlast
+
+---
+# Demo Wrap Up
+
+ * Soweit der Ausblick zur Kommunikation mit einem Server
+ * Mehr dazu in Webprogrammieren II / Netzwerke
+
+
+---
+# Engage your laptops!
+
+
+---
+# Startet eure favourisierten Text-Editoren
+
+
+---
+# Du hast keinen Text-Editor?!??
+
+![](images/facepalm.jpg)
+
+
+
+---
+# Text Editor Wahl-O-Mat
+
+ * Nutzt die Gelegenheit und lernt einen Editor wenn ihr noch keinen habt
+ * Empfohlen (alle Platformen)
+  * VIM
+  * Emacs
+ * OK sind auch
+  * Sublime Text
+  * TextMate (Mac)
+  * gEdit (Linux)
+  * NotePad++ (Windows)
+     * Nein, notepad.exe ist nicht ok und führt zu Punktabzug!
+
+---
+## An die IDE Nutzer
+
+ * Erinnert euch an meine Worte wenn dieser Tag kommt
+  * Wichtige Semantik: 'wenn', nicht 'falls'(;
+
+![](images/eclipse_vs_vim.jpg)
+
+---
+# Browser Prüfung
+
+ * IE Nutzer?
+ * Firefox Nutzer alle Firebug installiert?
+ * Mini Demo Firebug / Chrome Console
+
+---
+# Erste HTML Datei
+
+<pre class="syntax html">
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;webprogrammieren i&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;eine erste html datei&lt;/h1&gt;
+    &lt;img src="http://dispatched.ch/pic/yay.jpg"&gt;
+    &lt;p&gt;
+      wat??
+    &lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+---
+# Erste HTML Datei
+
+![](images/first_webpage.jpg)
+
+---
+# HTML
+
+ * HTML == Hyptertext Markup Language
+ * Markup Language == Auszeichnungs Sprache
+ * => HTML beschreibt Semantik und Struktur von Daten
+ * Beides wird durch sog. "Tags" beschrieben
+
+---
+# HTML
+## In der Demo verwandte Tags
+
+  * &lt;html&gt;
+    * Zeigt dem Browser an, dass es sich um ein HTML Dokument handelt
+  * &lt;head&gt;
+    * Beinhält Meta-Information zur Webseite, etwa den Titel
+  * &lt;body&gt;
+    * Beinhält den sichtbaren Inhalt der Webseite
+
+---
+# HTML
+## In der Demo verwandte Tags
+
+  * &lt;h1&gt;
+    * Überschrift
+  * &lt;p&gt;
+    * Paragraph mit Text
+
+---
+# HTML
+## Tags
+
+ * &lt;h1&gt;Meine Überschrift&lt;/h1&gt;
+   * Tags werden (immer) um Inhalt geschrieben
+   * Tags können ineinander geschachtelt werden
+      * html -> head -> title
+   * Tags werden geöffnet und geschlossen
+     * Zugehörigkeit wird 'matching tag' genannt
+   * Tags mit ihrem Inhalt heissen Element
+
+---
+# HTML
+## Style Tag
+
+ * HTML ist semantisch
+ * Styling/Repräsentation ist separiert
+
+
+<pre class="syntax html">
+  &lt;style type="text/css"&gt;
+
+  &lt;/style&gt;
+</pre>
+
+---
+# HTML
+## Style Tag am Beispiel der ersten HTML Datei
+
+<pre class="syntax html">
+&lt;html&gt;
+  &lt;head&gt;
+...
+    &lt;style type="text/css"&gt;
+      body {
+        font-family : "Lucida Grande";
+        border      : solid 1px;
+        height      : 400px;
+        width       : 402px;
+        padding     : 10px;
+      }
+      p {
+        font-weight : bold;
+        font-size   : 20px;
+      }
+    &lt;/style&gt;
+  &lt;/head&gt;
+...
+&lt;/html&gt;
+</pre>
+
+---
+## Ergebnis
+
+ ![](images/hello_webpage_styled.jpg)
+
+---
+# Style Elemente
+## nicht repräsentative Auswahl
+
+ * background-color: #d3b48c;
+ * margin-left: 20px;
+ * border: 1px dotted gray;
+ * padding: 10px 5px 10px 5px;
+ * font-family: Comic Sans MS;
+
+
+
+
+
+
+
+
+
+
+---
+# Attribute
+
+<pre class="syntax html">
+  &lt;style type="text/css"&gt;
+
+  &lt;/style&gt;
+</pre>
+
+ * 'type' Attribut spezifiziert die gebrauchte Sprache
+ * 'href' Attribut beschreibt das Ziel eines Hyperlinks
+ * 'src'  Attribut spezifiziert einen Dateinamen
+
+---
+# Links
+
+ * Links
+  * &lt;a&gt; Tag == anchor
+  * Inhalt von &lt;a&gt; ist das Label des Links
+  * Wörter und Bilder können verlinkt werden
+  * '..' im Pfad bedeutet 'Parent Folder'
+  * '/' ist das Trennsymbol im Pfad
+      * Wenn am Anfang stehend, dann 'Root Path'
+  * Leerzeichen im Pfad sind nicht erlaubt
+
+---
+# Verzeichnisse
+
+ * Demos
+  * Asset Organisation (Verzeichnisse)
+    * Pfade
+     * absolut
+     * relativ
+     * Vor- / Nachteile?
+    * broken Image
+    * broken Link
+
+---
+# Semantik
+## Beispiel Zitate
+
+ * &lt;q&gt; Tag
+
+<pre class="syntax html">
+&lt;p&gt;
+  &lt;q&gt;Knowing is not enough; we must apply. Willing is not enough; we must do.&lt;/q&gt;
+&lt;/p&gt;
+</pre>
+
+### Sieht so aus:
+
+<p>
+  <h3><q>Knowing is not enough; we must apply. Willing is not enough; we must do.</q></h3>
+</p>
+  [Johann Wolfgang von Goethe]
+
+---
+# Blockquotes
+
+ * &lt;blockquote&gt; Tag
+
+<pre class="syntax html">
+&lt;blockquote&gt;
+  Find a job you love and you'll never work a day in your life.
+&lt;/blockquote&gt;
+[Confuzius]
+</pre>
+
+### Sieht so aus:
+
+ <blockquote>Find a job you love and you'll never work a day in your life.</blockquote>
+ [Confuzius]
+
+---
+## Warum nicht selbst Anführungszeichen(") schreiben?
+
+ * html definiert Struktur, nicht Repräsentation
+ * "Accessible Design" für Blinde (Screenreader)
+ * Browser entscheidet selbst wie Zitate dargestellt werden
+  * Unterschiedlich in verschiedenen Sprachen
+ * Notwendig für Suchmaschinen, um Inhalt zu verstehen
+ * Ebenso kann semantisches Markup mittels CSS angepasst werden
+
+---
+# Quotes vs. Blockquotes
+ * Was ist der Unterschied zw. &lt;blockquote&gt;&lt;/blockquote&gt; und &lt;q&gt;&lt;/q&gt;?
+ * Demo beide in einem Dokument
+ * Sind es die Anführungszeichen?
+ * Ist es das Einrücken..?
+
+
+---
+# Quotes vs. Blockquotes
+
+ * blockquotes sind "block" Elemente
+ * quotes sind "inline" Elemente
+ * "block" Elemente werden dargestellt als hätten sie einen Zeilenumbruch vor
+ und nach sich
+ * "inline" Elemente fügen sich in den Fluss der Elemente darum
+ * Demo voriges Beispiel im Inspector
+
+---
+# Inline vs. Block
+
+ * Block Elemente sind die strukturell grossen Bausteine
+  * Überschriften
+  * Paragraphen
+  * ..
+ * Inline Elemente sind eher kleine Inhaltsversatzstücke
+  * Bilder
+  * Links
+  * ..
+
+---
+# Newlines in Text
+
+ * Wie erzwingt man ein Newline?
+ * Demo
+
+<pre class="syntax html">
+&lt;p&gt;
+  zeile eins
+  zeile zwei
+&lt;/p&gt;
+</pre>
+
+ * ergibt..
+
+---
+# Newlines in Text
+
+ ![](images/newlines.jpg)
+
+## WTF?
+
+---
+# Newlines in Text
+
+<pre class="syntax html">
+&lt;p&gt;
+  zeile eins&lt;br&gt;
+  zeile zwei
+&lt;/p&gt;
+</pre>
+
+
+---
+# Newlines in Text
+
+ * Hatten wir nicht gesagt jeder Tag öffnet, schliesst und dazw. hat er Inhalt?
+ * &lt;br&gt; hat keinen Inhalt!
+ * Elemente ohne Inhalt haben keinen abschliessenden Tag
+   * Spart Code
+   * anderes Beispiel: &lt;img&gt;
+
+---
+# Listen
+
+ * Wir wissen schon wie man eine Liste macht
+ * Paragraphen!
+
+<pre class="syntax html">
+&lt;h1&gt;Rückblick. Was haben wir gelernt?&lt;/h1&gt;
+&lt;p&gt;1. HTML ist semantisch&lt;/p&gt;
+&lt;p&gt;2. Das bedeutet Struktur und Repräsentation sind getrennt&lt;/p&gt;
+</pre>
+
+ * Hat jemand ein Problem mit obigem Code?
+
+---
+# Listen
+
+ * Paragraphen sind für Textparagraphen, sonst nichts
+ * Paragraphen resemblieren keine Listenstruktur
+   * Neue Reihenfolge oder neues Element bedeutet viel Arbeit
+   * Keine Semantik
+     * => kein "Accessible Design"
+     * => nicht gut für Suchmaschinen
+   * Dafür gibt es das Listen Element &lt;li&gt;
+
+---
+# Listen
+
+ * Demo
+  * Sortierte List
+  * Nicht sortierte Liste
+ * Exkurs CSS (list-style-type)
+   * circle, disc
+   * lower-roman / upper-roman
+   * [etc, w3c doku](http://www.w3schools.com/cssref/pr_list-style-type.asp)
+
+---
+# Nesting
+
+* Ein Element in einem anderen zu schachteln heisst 'nesting'
+
+![](images/nesting.jpg)
+
+* Demo yay.html
+* NB Trivia: Wie heissen diese Puppen?
+ * Siehe [Auflösung](http://de.wikipedia.org/wiki/Matrjoschka)
+
+---
+# Nesting
+
+ * Korrekt?
+
+<pre class="syntax html">
+&lt;p&gt;unscheinbarer text mit &lt;em&gt;inhalt&lt;/p&gt;&lt;/em&gt;
+</pre>
+
+---
+# Nesting
+
+ * Inkorrektes Schachteln führt zu unvorhersehbaren Ergebnissen
+  * kann in manchen Browsern je nach Fehlergrad dennoch richtig aussehen
+ * Wie kann man Tags in HTML Dokumenten darstellen?
+  * Demo
+
+---
+# Sonderzeichen
+
+ * < == `&lt;`
+ * > == `&gt;`
+ * `&` == `&amp;`
+ * [Andere Symbole](http://www.w3schools.com/tags/ref_entities.asp)
+
+---
+# Neue Tags
+
+ * code
+  * Blogpost (Demo Fibonacci)
+ * hr
+ * pre
+ * strong
+ * em
+
+---
+# Hosting
+
+ * Wie kommt meine Seite nun in's Web?
+ * Notwendig
+   * Hoster
+   * Server
+   * Domain
+
+
+---
+# Hosting
+
+ * Dedizierte Server
+ * Virtuelle Server
+ * Webspace
+
+---
+# Aufgaben
+
+ * Hosting besorgen
+  * Bekannt machen mit Deployment (FTP, GIT, ...)
+  * Demo Seite
+      * Mit Bild, Code, Links (innerpage, extern)
+      * Aus mindestens zwei Dateien
+      * Liste
+      * Styling
+       * Farben, Schriftarten, Listtyp
+
+ * Kapitel 3+4
+  * Aufgaben machen
+  * Kreuzworträtsel lösen
+
+---
+# Aufgaben
+
+ * Will jemand präsentieren?
+
+
+---
+# News
+
+ * Am Mittwoch nach Christi Himmelfahrt ist nicht unterrichtsfrei
+  * (BTW: Donnerstag, 17. Mai 2012)
+ * Sorry, sind eben Hippies
+
+---
+# Mehr News
+## Nächste Woche Vertretung
+
+ ![](images/felsentor.jpg)
+
+---
+# Webspace ZHAW
+
+ * Server dublin.zhaw.ch
+ * Zugang via ssh / scp für Upload
+ * Webzugriff via
+   * https://dublin.zhaw.ch/~benutzername/
+
+---
+# Hosting
+ * Alternativen
+  * [Dropbox Public Folder](http://www.dropbox.com/help/16)
+  * [Github Pages](http://pages.github.com/)
+  * [Amazon S3](http://aws.amazon.com/s3/)
+
+---
+# Domains
+
+<pre>
+          (root)                  Label der 0. Ebene, Null-Label
+           / \
+          /   \
+        com    org ...           Labels der 1. Ebene, Top-Level-Domains (TLD)
+       /         \
+      /           \
+  example      example ...       Labels der 2. Ebene, Second-Level-Domains und Hostnamen
+  /  |  \        / |  \                               direkt unter einer TLD
+www ...        de  en  www ...   Labels der 3. Ebene, Third-Level-Domains und Hostnamen
+               /                                      unter Second-Level-Domains
+             foo
+           ...
+  (beliebig erweiterbar)
+</pre>
+
+---
+# Domains
+## Fully Qualified Domain Name (FQDN)
+
+ * 3rd-level-label . 2nd-level-label . Top-Level-Domain . root-label
+ *       www       .    example      .      com         .
+ * Root Label ist meist leer, daher optional
+
+---
+# Domains
+## Subdomain
+
+ * Semantische Trennung von Diensten
+  * ftp.foo.com / mail.foo.com / www.foo.com
+ * Physische Trennung der Server
+
+---
+# Domains
+## Woher bekommen?
+
+ * Nationale Registrare
+   * http://www.switch.ch/
+   * Demo
+ * Hoster machen Reselling
+ * Darauf achten, dass Registrar DNS mitbringt
+  * Alternativ [dnsexit.com](http://www.dnsexit.com/) o.ä. nutzen
+  * Demo
+
+---
+# Erste Webseite online
+
+ * Demo
+ * Default Page
+  * index.html
+
+---
+# URL
+
+ * Stichwort "Uniform Resource Locator"
+ * Untergruppe von URI ("Uniform Resource Identifier")
+ * Syntax
+  * scheme://domain:port/path?query_string#fragment_id
+ * URLs identifizieren und lokalisieren Ressourcen eindeutig
+
+---
+# Bessere Zugänglichkeit
+
+ * &lt;title&gt; Attribut in nicht nur in &lt;head&gt;, auch in Links
+  * Vorteile
+   * Tooltips
+   * Search Engine (Google Image Search)
+   * Accessibility für Screenreader
+ * Link Labels nicht "click here" nennen
+  * Semantische Namen verwenden
+  * Erhöht Usability und SEO Wert
+ * Links nicht direkt nebeneinander
+  * Lesbarkeit
+
+---
+# Links (revisited)
+
+ * Demo Link zu externer Webseite
+
+---
+# Links innerhalb einer Seite
+
+ * Langes Scrollen in einer Seite vermeiden
+ * 'id' Attribut
+
+<pre class="syntax html">
+&lt;a id="spielergebnisse"&gt;
+ ZSC &lt;-&gt; Flyers: 8:6
+ ...
+&lt;/a&gt;
+</pre>
+index.html
+
+<pre class="syntax html">
+  &lt;a href=”index.html#spielergebnisse”&gt;Spielergebnisse&lt;/a&gt;
+</pre>
+
+---
+# Externe Links
+
+ * In separatem Browser Fenster öffnen
+
+<pre class="syntax html">
+&lt;a target=”_blank” href=”http://google.com” title=”finde das wissen der welt”&gt;google besuchen&lt;/a&gt;
+</pre>
+
+---
+# Externe Links
+
+ * target _blank nicht mehr so populär wie ehemals
+ * Browser heute haben Tabs
+ * Downsides
+   * Power User möchten selbst Kontrolle über Browserverhalten
+   * N00bs verstehen nicht wo ihr altes Fenster hin ist
+   * Screen Reader verlieren Zusammenhang
+ * => UX Hölle!
+
+---
+# Medien
+
+ * Bilder
+  * jpg, gif, png
+ * Serieller Download aller Assets
+  * Erst html Seite
+  * Dann sukkzessive CSS, Bilder, Scripts, ..
+  * Dann applizieren von CSS und ausführen der Scripts
+  * Demo Network Tab im Inspector
+
+---
+# GIF vs JPG
+
+ * JPG
+  * viele Farben(16mio), Verläufe (Photographien)
+  * 'lossy'
+  * keine Transparenz
+ * GIF
+  * Farbflächen, Linien
+  * 256 Farben
+  * komprimiert, aber "lossless"
+  * Transparenz
+
+---
+# PNG vs GIF
+
+ * beide haben
+  * verlustfreie Kompression
+  * Transparenz
+  * Streamfähigkeit
+ * GIF hat
+  * Animation
+  * Patentbeschränkung bis 2006
+ * PNG hat
+  * Patentfreiheit
+  * Unterstützung von Echtfarben
+
+---
+# Alternative
+
+ * Alternativtext für Bilder
+ * Beschreibung == Semantik
+  * SEO
+  * Screenreader
+  * langsame Internetverbindung
+  * Textbrowser
+
+<pre class="syntax html">
+&lt;img src=”http://www.foo.com/maunz.gif” alt=”it's a cat!”&gt;
+</pre>
+
+---
+# Bildgrösse
+
+ * Attribute *width* und *height*
+  * Grösse in Pixeln
+ * Demo (big_lolcat)
+ * Alternativen besprechen
+  * CSS
+  * imagemagick
+  * GIMP
+  * ..
+
+---
+# Thumbnails
+
+ * Demo
+
+---
+# HTML Standards, die erste
+##HTML 1.0-2.0
+
+  * 1989-1991
+  * Hypertext
+  * Repräsentation unwichtig
+  * "Home Pages" mit Kram
+
+---
+# HTML Standards, die erste
+##HTML 3
+
+
+  * 1995
+  * Mosaic, Lynx, ...
+  * [Browser wars](http://en.wikipedia.org/wiki/Browser_wars)
+   * Netscape vs. Microsoft
+   * Beide fügten proprietäre Erweiterungen zu Browsern hinzu
+   * => Entwickler bauten *zwei* Webseiten
+
+
+---
+# HTML Standards, die erste
+##HTML 3
+
+![](images/mosaic.gif)
+
+
+---
+# HTML Standards, die erste
+##HTML 4
+
+ * 1998
+ * Ende der Browser Wars
+  * W3C Gründung
+  * Ordnung, Standards
+ * Trennung von Struktur und Repräsentation
+
+---
+# HTML Standards, die erste
+##HTML 4.01
+
+ * 1999
+ * ist der aktuelle HTML Standard
+ * entspricht nur kleinen Änderungen zu HTML 4.0
+ * sprechen alle Browser
+
+---
+# HTML Standards, die erste
+##XHTML 1.0
+
+ * 2000
+ * XML und HTML wurden 'verheiratet'
+ * HTML wurde zuvor in SGML definiert
+  * [SGML](http://de.wikipedia.org/wiki/Standard_Generalized_Markup_Language) == Standard Generalized Markup Langauge
+  * SGML ist in DIN und EN definiert
+ * XHTML ist eigentlich tot, dazu später mehr
+  * Und glaubt dem Buch nicht, dass HTML5 nicht kommen wird..
+  * Kapitel 7 nur aus historischen Gründen lesen
+
+---
+# Browser Modi
+## Doctype
+
+ * Browser braucht Dokumententyp im Header
+  * weiss dann wie das Dokument zu interpretieren ist
+
+<pre class="syntax html">
+&lt;!DOCTYPE HTML PUBLIC “-//W3C//DTD HTML 4.01 Transitional//EN” “http://www.w3.org/TR/html4/loose.dtd”&gt;
+</pre>
+
+ * Ja, die Zeile ist exorbitant hässlich
+  * Geduld, auch hierzu später mehr
+
+---
+# Browser Modi
+## Doctype
+
+ * Im Einzelnen..
+
+<pre class="syntax html">
+&lt;!DOCTYPE ..&gt;
+</pre>
+
+ * zeigt dem Browser an, dass der Dokumententyp spezifiziert wird
+
+---
+# Browser Modi
+## Doctype
+
+<pre class="syntax html">
+&lt;!DOCTYPE html PUBLIC ..&gt;
+</pre>
+
+ * Der Wurzelknoten lautet 'html'
+ * Der HTML 4.01 Standard ist PUBLIC verfügbar
+ * Ist kein HTML Element wegen des Ausrufungszeichens vorne
+
+---
+# Browser Modi
+## Doctype
+
+<pre class="syntax html">
+.. “-//W3C//DTD HTML 4.01 Transitional//EN” ...
+</pre>
+
+ * Verwandt wird HTML 4.01
+ * Der Markup ist in Englisch geschrieben
+
+---
+# Browser Modi
+## Doctype
+
+<pre class="syntax html">
+ .. “http://www.w3.org/TR/html4/loose.dtd”&gt;
+</pre>
+
+ * DTD == Document Type Definition (re SGML)
+ * DTD spezififizert den Standard
+  * DTD steht zu HTML wie XSD zu XML
+
+---
+# Browser Modi
+## Doctype
+
+ * Fazit: Es ist legitim diese Kopfinformation mit 'copy paste' zu handhaben
+
+---
+# Browser Modi
+## Doctype
+
+ * Was geschieht wenn DOCTYPE einem unserer HTML Dokumente hinzugefügt wird?
+ * Demo
+
+---
+# Browser Modi
+## Doctype
+
+ * HTML 4.01 Deklaration bedeutet nicht zwingend korrekten Einsatz
+ * Demo W3C Validator
+  * Adressen
+  * Files
+  * Bulk text
+
+---
+# Content Type
+## &lt;meta&gt; Tag
+
+ * meta == Information *über* die Seite
+
+<pre class="syntax html">
+&lt;meta http-equiv=”Content-Type” content=”text/html; charset=ISO-8859-1”&gt;
+</pre>
+
+
+---
+# Super, noch so eine hässliche Zeile!
+
+![](images/facepalm.jpg)
+
+---
+# Content Type
+## &lt;meta&gt; Tag
+
+ * Demo
+ * 'Charset'
+  * Teil des 'Content' Attributes
+
+---
+# W3C Validator
+## one more time
+
+---
+# DOCTYPE
+## transitional vs. strict
+
+ * transitional == Validierung gegen neue Syntax
+  * erlaubt aber legacy (historischen) Code
+ * strict bedeuet nur HTML 4.01 Code ist erlaubt
+
+---
+# DOCTYPE strict
+
+<pre class="syntax html">
+&lt;!DOCTYPE html PUBLIC “-//W3C//DTD HTML 4.01//EN” “http://www.w3.org/TR/html4/strict.dtd”&gt;
+</pre>
+
+&nbsp;
+
+ * NB: Kein 'transitional' mehr
+
+---
+# W3C Validator
+## Imernoch valider HTML Code?
+
+---
+# Unterschiede strict vs. transitional
+
+ * Inline Elemente gehören in Block Elemente
+  * Bsp &lt;img&gt; in &lt;p&gt;
+ * Keine Block Elemente in Inline Elementen
+ * Keine Block Elemente in &lt;p&gt;
+ * Folgende Elemente verboten:
+  * &lt;center&gt;, &lt;font&gt;, &lt;iframe&gt;, &lt;strike&gt;
+ * Folgende Attribute sin verboten:
+  * align, background, bgcolor, border, height/width, ...
+
+---
+# Und sonst?
+
+ * Keine Sorge, und sonst haben wir bisher 'strict'ten HTML Code geschrieben
+
+---
+# CSS
+
+ * Bisher recht anstrengend
+  * Semantik
+  * Validierungen
+  * HTML Standards
+  * pfffff......
+ * Jetzt kommt etwas Farbe rein!
+
+# CSS
+## Beispiel
+
+<pre class="syntax css">
+p { background-color: red; }
+</pre>
+
+---
+# CSS Beispiel
+
+ * *p*: Selector
+  * keine Spitzklammern in CSS
+ * *background-color*: Property Type
+  * In diesem Fall die Hintergrundfarbe
+ * Zw. Property Type und Wert ist ein Doppelpunkt
+ * Am Ende jedes Property Type/Wert Paares steht ein Semikolon
+ * {}: Beinhält alle Styles für &lt;p&gt; Elemente
+ * Das ganze Statement ist eine *Regel*
+
+---
+# CSS
+
+ * Demo
+  * Einbinden in HTML Seite
+  * Verschiedene Selektoren
+  * Mehrere Selektoren mit gleichen Regeln
+     * Und Ausnahmen davon für einzelne Selektoren
+
+---
+# CSS
+## Einbinden in externes Stylesheet
+
+<pre class="syntax html">
+&lt;link type=”text/css” rel=”stylesheet” href=”hszt_style.css” /&gt;
+</pre>
+
+---
+# CSS
+## Typographie -> Serifen
+
+ ![](images/serif_non_serif.jpg)
+
+Quelle: http://en.wikipedia.org/wiki/Serif
+
+---
+# CSS
+## Typographie -> Serifen
+
+  * Property Type für Schrift Familie
+   * font-family: sans-serif;
+   * font-family: serif;
+
+
+---
+# CSS
+## Inheritance (Vererbung)
+
+ * Elemente innerhalb gestylter Elemente erben die definierten Eigenschaften
+
+<pre class="syntax css">
+p { color: red; }
+</pre>
+css
+
+<pre class="syntax html">
+&lt;p&gt;&lt;em&gt;erbt von 'p'&lt;/em&gt;&lt;/p&gt;
+</pre>
+html
+
+---
+# CSS
+## Inheritance (Vererbung)
+
+ * Überschreiben der Vererbungshierarchie
+
+<pre class="syntax css">
+p { color: red; }
+em { color: blue; }
+</pre>
+css
+
+<pre class="syntax html">
+&lt;p&gt;&lt;em&gt;hat eigene eigenschaften&lt;/em&gt;&lt;/p&gt;
+</pre>
+html
+
+---
+# CSS
+
+  * Bisheriger _p_ Selektor greift für alle Paragraphen
+  * Unterschiedliche Styles für gleichnamige Elemente: _class_ Attribut
+
+
+---
+# CSS
+
+<pre class="syntax css">
+q.important { font-family: "Hoefler Text", serif; color: OliveDrab; }
+q.not_important { font-family: "Comic Sans MS", cursive; color: SaddleBrown ; }
+</pre>
+css
+
+<pre class="syntax html">
+&lt;p&gt;&lt;q class="important"&gt;Find a job you love and you'll never work a day in your life.&lt;/q&gt;[Confuzius]&lt;/p&gt;
+&lt;p&gt; &lt;q class="not_important"&gt;Zeit ist Geld.&lt;/q&gt;[Benjamin Franklin]&lt;/p&gt;
+</pre>
+html
+
+---
+# CSS
+## Unterschiedliche Styles, gleiche Elemente
+
+ ![](images/quotes.jpg)
+
+---
+# CSS
+## Gleiche Styles, unterschiedliche Elemente
+
+ * Unterschiedliche Selektoren für selbe Property Types
+
+<pre class="syntax css">
+q.important, blockquote {
+  font-family: "Hoefler Text", serif;
+  color: OliveDrab;
+}
+</pre>
+css
+
+---
+# CSS
+## Gleiche Styles, unterschiedliche Elemente
+
+<pre class="syntax html">
+&lt;p&gt;
+  &lt;q class="important"&gt;Respond intelligently even to unintelligent treatment.&lt;/q&gt;
+  [Confuzius]
+&lt;/p&gt;
+
+&lt;blockquote&gt;
+  He who knows much about others may be learned, but he who understands
+  himself is more intelligent. He who controls others may be powerful, but
+  he who has mastered himself is mightier still.
+&lt;/blockquote&gt;
+[Confuzius]
+</pre>
+html
+
+---
+# CSS
+## Gleiche Styles, unterschiedliche Elemente
+
+ ![](images/quotes2.png)
+
+---
+# CSS
+## Kaskade
+
+ 1. Treffen Selektoren direkt auf das Element zu?
+ 1. Treffen Selektoren auf die oberliegenden Elemente zu?
+ 1. Nutze Voreinstellungen des Browsers
+
+---
+# CSS
+## Kaskade
+
+ * Wenn mehrere Selektoren zutreffen
+  * 'Konflikt'
+  * Regel mit höherer Präzision gewinnt
+
+<pre class="syntax css">
+p { color: black;}
+.greentea { color: green; }
+p.greentea { color: green; }
+p.raspberry { color: blue; }
+p.blueberry { color: purple; }
+</pre>
+
+---
+# CSS
+## Kaskade
+
+ * Wenn mehrere Selektoren mit gleicher Präzision zutreffen
+
+<pre class="syntax html">
+&lt;p class="greentea raspberry"&gt;
+  Tee Mix
+&lt;/p&gt;
+</pre>
+
+ * Es gewinnt die letzte CSS Regel
+  * Die als letzte im File definierte Regel
+ * Hier: _p.raspberry_
+
+
+---
+# CSS
+## Validator
+
+ * Analog zum [W3C HTML Validator](http://validator.w3.org/check)
+ * [W3C CSS Validator](http://jigsaw.w3.org/css-validator/)
+
+---
+# CSS
+## Einige wichtigV Property Types
+
+ * top: Positionierung des Elementes von oben gesehen
+ * left: Positionierung des Elementes von links gesehen
+ * text-align: Ausrichtung von Text (left, center, right)
+ * font-weight: Dicke (normal, bold, bolder, lighter)
+ * font-size
+ * color: Farbe des Elementes
+ * letter-spacing: Abstand zwischen B u c h s t a b e n
+
+
+---
+# CSS
+## Einige wichtige Property Types
+
+ * line-height: Abstand zwischen zeilen eines Text Elementes
+ * background-image, background-color
+ * margin: Rand an den Seiten des Elementes
+
+
+---
+# CSS
+## Text & Fonts
+
+ * Viele Property Types dienen dem stylen von Text
+
+<pre class="syntax css">
+body {
+  font-family: Verdana, Geneva, Arial, sans-serif;
+  font-size: 14px;
+  color: silver;
+  font-weight: bold;
+  text-decoration: underline;
+}
+</pre>
+
+---
+# CSS
+## Font Family
+
+ * Font Families sind eine Untermenge Schriften
+  * Teilen einige gleiche Eigenschaften
+ * Font Families
+  * sans-serif, serif, monospace, cursive, und fantasy
+  * Jede beinhält viele Schriften
+  * Im Folgenden nur einige Beispiele
+
+---
+# CSS
+## Font Family Sans Serif
+
+ ![](images/sans_serif_family.jpg)
+
+---
+# CSS
+## Font Family Sans Serif
+
+ * Schriftarten ohne Serifen
+ * Eher lesbar auf Computerbildschirmen als mit Serifen
+
+---
+# CSS
+## Font Family Serif
+
+ ![](images/serif_family.jpg)
+
+---
+# CSS
+## Font Family Serif
+
+ * Schriftarten mit Serifen
+ * Elegant, traditionell
+ * Assoziiert mit Schriftart aus Zeitungen
+ *
+
+---
+# CSS
+## Font Family Monospace
+
+![](images/monospace_family.jpg)
+
+---
+# CSS
+## Font Family Monospace
+
+ * Schriftarten mit gleich breiten Zeichen
+  * Ein 'i' beansprucht gleich viel Platz wie ein 'm'
+  * Verwandt für Quellcode Beispiele
+ * Wie auf Schreibmaschine
+
+---
+# CSS
+## Font Family Cursive
+
+![](images/cursive_family.jpg)
+
+---
+# CSS
+## Font Family Cursive
+
+ * Schriftart mit Handschrift Eigenschaften
+ * Gerne in Überschriften genutzt
+
+---
+# CSS
+## Font Family Fantasy
+
+![](images/fantasy_family.jpg)
+
+
+---
+# CSS
+## Font Family Fantasy
+
+ * Schriftart mit dekorativen Schriften
+ * Sind häufig nicht auf Rechnern verfügbar
+  * Verfügbarkeit allgemein ist abhängig vom OS
+  * Werden daher selten in seriösen Web Designs genutzt
+
+---
+# CSS
+## Font Family
+
+<pre class="syntax css">
+body { font-family: Verdana, Geneva, Arial, sans-serif; }
+</pre>
+
+  * Möglich mehr als eine Schrift zu spezifizieren
+   * In der Regel Liste aus der gleichen Font Family
+  * Gross-, Kleinschreibung ist relevant
+  * Am Ende steht die generische Font Family
+
+---
+# CSS
+## Font Family Auflösen
+
+  * Browser prüft vorne anfangend, ob Schriftart verfügbar ist
+     * Liste Schriften kann beliebig lang sein
+       * Auch 0 ist erlaubt
+       * Dann wird generische Schriftart genommen
+
+---
+# CSS
+## Vorgehen Schriften
+
+ * Kontrolle von installierten Schriftarten nicht möglich
+ * Für konsistentes Design möglichst immer Alternativen anzugeben
+
+
+---
+# CSS
+## Schriftgrössen
+
+ * _font-size_ bereits bekannt
+ * Angabe in Pixeln
+ * Bedeutet die Schrift ist am höchsten und tiefsten Punkt n Pixel hoch
+
+<pre class="syntax css">
+body { font-size: 14px; }
+</pre>
+
+---
+# CSS
+## Schriftgrössen
+
+ * Angabe in Prozent
+ * Grösse relativ zu anderer Schriftgrösse
+
+<pre class="syntax css">
+body { font-size: 14px; }
+h1 { font-size: 150%; }
+</pre>
+
+ * 150% von 14px =&gt; 21px für &lt;h1&gt;
+
+
+---
+# CSS
+## Schriftgrössen
+
+ * Angabe in _em_
+  * Hat nichts mit dem &lt;em&gt; Element zu tun
+ * Ebenfalls relative Messgrösse
+ * Gibt einen Skalierungsfaktor an
+
+
+---
+# CSS
+## Schriftgrössen
+
+
+<pre class="syntax css">
+body { font-size: 14px; }
+h1 { font-size: 150%; }
+h2 { font-size: 1.2em; }
+</pre>
+
+  * &lt;h2&gt; Elemente werden hier 1.2 mal die Grösse von &lt;body&gt; haben
+    * => 17px, aufgerundet von 16.8px
+
+---
+# CSS
+## Schriftgrössen
+
+ * Weitere Möglichkeit: Keywords
+ * xx-small, x-small, small, medium, large, x-large, und xx-large
+ * Relative Angaben zu den Einstellungen des Browsers
+ * Jedes Keyword etwa 20% grösser als Vorgänger
+
+<pre class="syntax css">
+font-size: small;
+</pre>
+
+---
+# CSS
+## Schriftgrössen Vorgehen
+
+  * Tipp: &lt;body&gt; mit Keyword definieren
+   * Alle anderen relativ dazu definieren
+   * So kann die gesamte Seite schnell neuem Design angepasst werden
+  * Ausnahme: Pixelgenaues Design vorgegeben
+
+---
+# CSS
+## Schriftgrössen Vorgehen
+
+ * Beispiel
+
+
+<pre class="syntax css">
+body { font-size: small; }
+h1 { font-size: 150%; }
+h2 { font-size: 120%; }
+</pre>
+
+---
+# CSS
+## Font Weight
+
+ * Spezifiziert wie fett Schrift erscheint
+ * absolute Werte: normal, bold
+ * relative Werte: bolder, lighter
+ * Alternativ: Wert zwischen 100 und 900
+  * Weniger häufig gebraucht, da nicht überall gut unterstützt
+
+
+---
+# CSS
+## Font Style
+
+<pre class="syntax css">
+p { font-style: italic; }
+em { font-style: oblique; }
+</pre>
+
+ * italic und oblique neigen beide die Schriftart
+ * Je nach Schrift und Browser wird eines der beiden verwandt
+  * Auch wenn das andere spezifiziert wurde
+  * Es reicht also 'italic' zu nutzen
+
+---
+# CSS
+## Farben
+
+  * Einige Namen bereits gesehen (red, blue, OliveDrab, ...)
+  * Farben sind in RGB (Rot, Grün, Blau)
+  * Jeweilige Farbwerte werden in Hex(00-FF) angegeben
+
+---
+# CSS
+## Farben
+
+  * 100% jeder Farbe resultiert in weiss
+
+![](images/rgb_100.jpg)
+
+
+---
+# CSS
+## Farben
+
+ * Weniger gleichmässige Farbe resultiert in einem grau
+ * Wir senden gleiche Farben, aber weniger Licht
+
+![](images/rgb_60.jpg)
+
+---
+# CSS
+## Farben
+
+ * Rot und Gruen gibt ein Orange
+ * Eine Farbe auf 0% stellen bewirkt, dass sie nicht im Mix erscheint
+
+![](images/rgb_orange.jpg)
+
+
+---
+# CSS
+## Farben
+
+ * Alle Farben auf 0% zu stellen bedeutet kein Licht auf den Schirm zu senden
+  * So resultiert schwarz
+
+![](images/rgb_black.jpg)
+
+---
+# CSS
+## Farben
+
+ * Farben können auch mit [Namen angegeben werden](http://www.w3schools.com/cssref/css_colornames.asp)
+ * 147 Namen sind definiert
+ * 17 davon sind Standard:
+  * aqua, black, blue, fuchsia, gray, grey, green, lime, maroon, navy, olive,
+  purple, red, silver, teal, white, und yellow
+
+---
+# CSS
+## Farben
+
+ * Alle Möglichkeiten auf einem Blick
+
+<pre class="syntax css">
+p.hex     { color: #FF0000; }
+/* 'saubere Farben': können kürzer geschrieben werden */
+p.hex     { color: #F00; }
+p.name    { color: red; }
+p.percent { color: rgb(100%, 0%, 0%); }
+</pre>
+
+---
+# CSS
+## Farben - Trivia
+
+ * Verstehen alle hexadezimale Zahlen?
+ * Zeigen von Tools für Farbfindung
+  * Gimp
+  * XScope
+  * [html-color-codes.info](http://html-color-codes.info/)
+  * ..
+
+</pre>
+
+---
+# CSS
+## Farben - Trivia
+
+ * Was haben die folgenden Farben gemein?
+
+<pre>
+#111111 #444444 #777777 #aaaaaa #dddddd
+#222222 #555555 #888888 #bbbbbb #eeeeee
+#333333 #666666 #999999 #cccccc
+</pre>
+
+---
+# Fragen
+
+## Zur letzten Vorlesung?
+## Zur vorletzten Vorlesung?
+
+
+---
+# Das Box Modell
+## Struktur von inline und block Elementen
+
+ * Frage: Was waren inline und block Elemente?
+ * Das Box Modell beschreibt wie CSS Elemente sieht
+ * CSS behandelt jedes Element als sei es eine Box
+  * Jedes Element hat eine Fläche für Inhalt
+  * Jedes Element ist umgeben von optionaler, transparenter Füllung (Padding)
+  * Jedes Element ist umgeben von einem optionalem Rahmen (Border)
+  * Jedes Element ist umgeben von optionalem, transparentem Rand (Margin)
+
+
+---
+# Das Box Modell
+
+ * Jedes Element hat Inhalt - etwa Text oder ein Bild
+ * Dieses Element ist gerade so gross wie der Inhalt
+  * Es gibt keinen Pixel Leerraum zwischen Inhalt und Rand
+
+---
+# Das Box Modell
+
+![](images/boxmodel.png)
+
+---
+# Das Box Modell
+
+ * Paddings und Margins können auf jeder Seite unterschiedlich sein
+
+<pre class="syntax css">
+padding-top:25px;
+padding-right:50px;
+padding-bottom:25px;
+padding-left:50px;
+</pre>
+
+---
+# Das Box Modell
+
+ * Demo Border, Margin, Padding
+   * Permutationen
+
+---
+# Das Box Modell
+
+* Shorthand(Kurzversion), Einzeiler
+
+<pre class="syntax css">
+padding:25px 50px 25px 50px;
+</pre>
+
+* Reihenfolge: Top, Right, Bottom, Left
+
+---
+# Das Box Modell
+
+* Shorthand, Einzeiler
+* Merkhilfe für Geodäten
+ * Windrose (Nord Ost Süd West)
+ * Nicht Ohne Seife Waschen
+
+---
+# Das Box Modell
+
+ * Alternative
+
+<pre class="syntax css">
+padding: 25px 50px;
+</pre>
+
+ * Erste Angabe: Oben und Unten
+ * Zweite Angabe: Links und Rechts
+
+---
+# Font Shorthand
+## Beispiel
+
+### Aus
+<pre class="syntax css">
+font-size: small;
+font-family: Verdana, Helvetica, Arial, sans-serif;
+line-height: 1.6em;
+</pre>
+
+### Wird
+<pre class="syntax css">
+font: small/1.6em Verdana, Helvetica, Arial, sans-serif;
+</pre>
+
+---
+# Font Shorthand
+
+<pre class="syntax css">
+font: font-style font-variant font-weight font-size/line-height font-family;
+</pre>
+
+ * _font-style_, _font-variant_, _font-weight_ sind optional
+ * _font-size_ ist ein Pflichtfeld
+ * _line-height_ ist optional
+ * _font-family_
+  * Es muss nur eine Schrift spezifiziert werden
+  * Es können aber mehrere Schrift-Familien (Komma getrennt) gelistet werden
+
+
+---
+# Borders Shorthand
+
+### Aus
+<pre class="syntax css">
+p {
+  border-color: green;
+  border-width: 5px;
+  border-style: solid;
+}
+</pre>
+
+
+### Wird
+
+<pre class="syntax css">
+em { border: green solid 5px; }
+</pre>
+
+   * styles: solid, dotted, dashed, ...
+
+---
+# Das Box Modell
+## Borders
+
+ * Rand Seiten genauer spezifizieren
+
+<pre class="syntax css">
+border-xx-color
+border-xx-style
+border-xx-width
+</pre>
+
+* xx &in; { top, left, right, bottom }
+
+---
+# Property: Background-Image
+
+<pre class="syntax css">
+p {
+  background-image: url("images/enso.png");
+}
+</pre>
+
+  * Dient dazu einem Element ein Hintergrund Bild hinzuzufügen
+  * Nicht zu verwechseln mit &lt;img&gt; Element
+
+---
+# Gruppen Aufgabe
+
+![](images/a1.png)
+
+ * Link [http://dispatched.ch/pic/a1.png](http://dispatched.ch/pic/a1.png)
+ * Enso [http://dispatched.ch/pic/enso.png](http://dispatched.ch/pic/enso.png)
+
+---
+# CSS Dokumentation im Netz
+
+ * [http://dochub.io/](http://dochub.io/)
+ * [https://developer.mozilla.org/en/CSS/CSS_Reference](https://developer.mozilla.org/en/CSS/CSS_Reference)
+ * [http://www.w3schools.com/css/](http://www.w3schools.com/css/)
+
+---
+# Messhelferlein
+
+ * OSX
+  * xScope
+  * Pixelmator
+  * Screenshot (Shift+CMD+4)
+ * Allgemein
+  * imagemagick
+  * Gimp
+
+---
+# Ready, set, go!
+
+![](images/a1.png)
+
+ * Link [http://dispatched.ch/pic/a1.png](http://dispatched.ch/pic/a1.png)
+ * Enso [http://dispatched.ch/pic/enso.png](http://dispatched.ch/pic/enso.png)
+
+---
+# Mehrere Stylesheets
+
+ * Eine Webapp kann mehrere Stylesheets einbinden
+ * Gründe
+  * Struktur / Aufgabenteilung
+  * Verschiedene Bibliotheken
+  * Überschreiben von Regeln in grösserem Framework
+  * Letzte Regel überschreibt vorherige
+     * Wie auch schon in einer CSS Datei
+
+---
+# Mehrere Stylesheets
+
+<pre class="syntax html">
+&lt;head&gt;
+  &lt;link type=“text/css” href=“first.css” rel=“stylesheet” /&gt;
+  &lt;link type=“text/css” href=“second.css” rel=“stylesheet” /&gt;
+  &lt;link type=“text/css” href=“third.css” rel=“stylesheet” /&gt;
+&lt;/head&gt;
+</pre>
+
+---
+# CSS Media
+
+ * CSS ist nicht nur für den Browser
+ * _media_ Attribut gibt Target an
+  * screen
+  * print
+  * handheld
+  * [Dokumentation](http://www.w3.org/TR/CSS2/media.html)
+
+---
+# CSS Media
+
+ * Zwei Möglichkeiten
+
+### In CSS
+<pre class="syntax css">
+@media print {
+  #nav-area {display: none;}
+}
+</pre>
+
+### In HTML
+<pre class="syntax html">
+&lt;link type=”text/css” rel=”stylesheet” href=”print.css” media=”print” /&gt;
+</pre>
+
+
+---
+# Mehr Struktur
+
+ * Wie kommt denn nun Struktur in die Seite?
+  * Navigation
+  * Header, Footer
+  * Bisher hatten wir nur lineare Seiten von oben nach unten
+
+
+---
+# Logische Blöcke
+
+ * Nutze &lt;div&gt;, um logische Block Elemente zu kapseln
+ * Nutze &lt;span&gt;, um logische Inline Elemente zu kapseln
+ * Nutze _id_ und _class_, um diese Blöcke gleich zu stylen
+ * Nutze _width_ Attribut, um Breite der Elemente anzugeben
+ * Nutze _height_ Attribut, um Höhe der Elemente anzugeben
+ * Beide nur für Inhalt der Elemente, ohne Padding und Border
+
+---
+# Beispiel Span
+
+<pre class="syntax html">
+&lt;h1&gt;CD List&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;span class=”artist”&gt;Little Dragon&lt;/span&gt;,
+    &lt;span class=”song”&gt;When I go out&lt;/span&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+
+
+---
+# Vererbung
+
+ * CSS Regeln werden in ineinander geschachtelten Elementen vererbt
+ * Demo Selektor für Nachfahren (Descendants)
+
+<pre class="syntax css">
+#foo h2 {
+  color: red;
+}
+</pre>
+
+---
+# Aufgaben
+
+ * Kapitel 10+11 lesen
+ * Eigenes Projekt auf aktuellen Stand bringen
+ * Mail bis Freitag mit Link zum aktuellen Projekt an: aml@panter.ch
+
+---
+# Fragen zur letzten Vorlesung
+
+---
+# Feedback Abgabe
+
+---
+# CSS Selektor Typ Pseudo-Classes
+
+ * Links haben drei verschiedene Views
+  * unvisited link
+  * visited
+  * hover
+ * Stati wie die in Links heissen in CSS Speak Pseudo Klasse
+
+<pre class="syntax css">
+a:link    { color: blue; }
+a:visited { color: green; }
+a:hover   { color: red; }
+</pre>
+
+---
+# Kaskade
+## _Cascade_ in _Cascading Stylesheets_
+
+ * Es gibt immer mehr als ein Stylesheet
+  * Nicht nur weil der Autor (ihr) mehrere einbindet
+  * Normal werden mindestens zwei (oder drei) verwandt
+  * Das des Autors, das des Benutzers und das des Browsers
+
+---
+# Kaskade
+## Demo Benutzer Stylesheet
+
+ * Firefox
+ * Verzeichnis (OSX):
+  * ~/Library/Application Support/Firefox/Profiles/xxxx/chrome
+  * Darin eine Datei userContent.css anlegen
+
+---
+# Kaskade
+
+ * Wie entscheidet der Browser welcher Style verwandt wird?
+ * In kurz:
+  * Bei gleichen Selektoren gewinnt die letzte Regel
+  * Bei unterschiedlichen Selektoren gewinnt die spezifischere
+
+---
+# Kaskade
+## Beispiel
+
+### HTML
+<pre class="syntax html">
+&lt;div&gt;which color am i?&lt;/div&gt;
+&lt;div class="maunz"&gt;which color am i?&lt;/div&gt;
+</pre>
+
+### CSS
+<pre class="syntax css">
+div { background-color: lightgrey; }
+.maunz { background-color: darkgoldenrod; }
+</pre>
+
+---
+# Kaskade
+## Ablauf
+
+ * Schritt 1: Hole alle Stylesheets (Autor, Benutzer, Browser)
+ * Schritt 2: Finde Regeln, welche passen
+ * Schritt 3: Sortiere Treffer aufsteigend nach Autor, Benutzer, Browser
+ * Schritt 4: Sortiere Treffer nach Präzision
+ * Schritt 5: Sortiere Treffer mit Konflikten nach Auftrittzeitpunkt
+
+---
+# Kaskade
+## Präzision
+
+ * Wenn das Element Inline Styling hat, dann gewinnt dieses
+ * Für jede ID, addiere 0,1,0,0 Punkte
+ * Für jede Klasse, Pseudo-Klasse oder Attribut, addiere 0,0,1,0 Punkte
+ * Für jede Referenz auf ein Element, addiere 0,0,0,1 Punkte
+
+---
+# Kaskade
+## Präzision
+
+![](images/specificity-calculationbase.png)
+
+Quelle: css-tricks.com
+
+---
+# Kaskade
+## Präzision
+
+ * Ausnahme
+ * Der _!important_ Wert an einem CSS Attribut übersteuert alle Regeln
+  * Er gewinnt immer, selbst gegen Inline Styles
+
+---
+# Kaskade
+## Beispiel - Schritt 1
+
+<pre class="syntax html">
+&lt;h1 class=”blueberry”&gt;Blueberry Smoothie&lt;/h1&gt;
+</pre>
+
+### Author CSS
+<pre class="syntax css">
+h1 { color: #efefef; }
+h1.blueberry { color: blue; }
+</pre>
+
+### Benutzer CSS
+<pre class="syntax css">
+body h1 { color: #ccc; }
+</pre>
+
+### Browser CSS
+<pre class="syntax css">
+h1 { color: black; }
+</pre>
+
+
+---
+# Kaskade
+## Beispiel - Gruppenarbeit (zum Slide davor)
+
+ * Schritt 1: Hole alle Stylesheets (Autor, Benutzer, Browser)
+  * done
+ * Schritt 2: Finde Regeln, welche passen
+ * Schritt 3: Sortiere Treffer aufsteigend nach Autor, Benutzer, Browser
+ * Schritt 4: Sortiere Treffer nach Präzision
+ * Schritt 5: Sortiere Treffer mit Konflikten nach Auftrittzeitpunkt
+
+
+---
+# Kaskade
+## Beispiel - Gruppenarbeit
+### Ergebnis
+
+<pre class="syntax css">
+/* 011 */
+h1.blueberry { color: blue; }
+/* 001 */
+h1 { color: #efefef; }
+/* Ende Author */
+
+/* 002 */
+body h1 { color: #ccc; }
+/* Ende Benutzer */
+
+/* 001 */
+h1 { color: black; }
+/* Ende Browser */
+</pre>
+
+
+---
+# Positionierung
+
+## Bisher
+
+  * Elemente wurden automatisch positioniert
+  * So kann man kein eigenes Design umsetzen
+
+## Statt dessen: Use the flow
+
+  * der Browser nutzt den 'Flow', um die Elemente zu positionieren
+  * beginnt von oben im Markup
+   * zeigt sukkzessive jedes Elemente nach den Regeln des 'Flow' an
+   * setzt einen Zeilenumbruch zwischen jedes blockierende Element
+
+
+---
+# Positionierung
+
+## Aus HTML...
+
+<pre class="syntax html">
+&lt;html&gt;
+  &lt;body&gt;
+    &lt;h1&gt;...&lt;/h1&gt;
+    &lt;h2&gt;...&lt;/h2&gt;
+    &lt;p&gt;...&lt;/p&gt;
+    &lt;h2&gt;...&lt;/h2&gt;
+    &lt;p&gt;...&lt;/p&gt;
+    &lt;p&gt;...&lt;/p&gt;
+    &lt;p&gt;...&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+&lt;/pre&gt;
+</pre>
+
+---
+# Positionierung
+## Wird angezeigt..
+
+
+![](images/use_the_flow.png)
+
+
+---
+# Positionierung
+
+ * Inline Elemente fliessen je nach Platz von links oben nach rechts unten
+
+![](images/use_the_flow_2.png)
+
+---
+# Positionierung
+
+ * Kleineres Browser Fenster
+
+![](images/use_the_flow_3.png)
+
+---
+# Positionierung
+## Fluss und Boxen
+
+  * Zwei Inline Elemente nebeneinander
+    * => Margin wird addiert
+  * Zwei Blockierende Elemente nebeneinander
+    * => Margins werden kollabiert
+    * => grösster Margin wird angezeigt
+
+---
+# Positionierung
+## Fluss und Boxen (Chrome CSS Metrics Tab)
+
+![](images/margin_block_elements.png)
+
+---
+# Positionierung
+## Fluss und Boxen (Chrome CSS Metrics Tab)
+
+![](images/margin_inline_elements.png)
+
+
+---
+# Floating
+
+ * Block Elemente umeiander fliessen zu lassen: *float*
+ * Notwendig
+  * Eindeutiges Element
+  * mit definierter Breite (*width*)
+ * Demo: Einfaches Layout
+  * mit Header, Footer, Navigation, Inhalt
+
+---
+# Floating
+## Vorgehen des Browsers
+
+ * Sobald ein *float*ing Element gesehen wird
+  * Schiebt das Element ganz an die Seite
+  * Entfernt das Element vom normalen Fluss
+  * Das Element 'schwebt' über der Seite
+
+---
+# Floating
+## Vorgehen des Browsers
+
+ * Da das Element vom normalen Fluss ausgenommen wurde
+  * Andere Block Elemente werden an dessen Stelle genommen
+  * Inline Elemente respektieren die Grenzen des *float*ed Elements
+   * Werden also darum herum positioniert
+
+---
+# Floating
+
+ * Demo: simple_flow
+  * Paragraphen mit Overflow
+
+---
+# Floating
+
+ * Wie die Überlappung aufheben?
+  * _clear_ Property
+  * Gibt an, dass an gegebener Stelle kein Floating stattfinden soll
+
+
+<pre class="syntax css">
+clear: left;
+clear: right;
+clear: both;
+</pre>
+
+ * Demo simple_flow mit *clear*
+
+---
+# Positionierung
+## Absolute, Relative, Fixed
+
+<pre class="syntax css">
+position: relative;
+position: absolute;
+position: fixed;
+</pre>
+
+---
+# Positionierung
+## Static, Absolute, Relative, Fixed
+
+ * Statische Position
+  * Elemente sind als Standard statisch positioniert
+  * Sie bewegen sich immer relativ zum normalen Fluss der Seite
+ * Fixe Position
+  * Element ist fix zum Browser Fenster positioniert
+  * Bewegt sich nicht, selbst wenn das Fenster scrollt
+
+---
+# Positionierung
+## Static, Absolute, Relative, Fixed
+ * Relative Position
+  * Element ist relativ positioniert zu seiner normalen Position
+ * Absolute Position
+  * Relativ zum ersten Parent Element positioniert, welches nicht *static* ist
+   * Im Zweifel &lt;html&gt;
+
+---
+# Selbst Nachlesen
+
+ * Tabellen(Kapitel 13)
+ * Checkboxes, Pulldowns, Formulare (Kapitel 14)
+
+---
+# Ausgestylt!
+
+---
+# Los geht's, HTML5 Style
+
+---
+# HTML5
+
+* Bis HTML 4.01 war HTML nur Markup
+* HTML5 beinhält jedoch
+ * CSS3
+ * 2D/3D Zeichnen
+ * Offline Support
+ * Sockets und Threads
+ * Geolocation
+ * Localstorage
+ * Audio/Video
+ * ...
+
+---
+# HTML5
+## Getting rid of the cruft
+
+<pre class="syntax html">
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"&gt;
+</pre>
+
+## wird zu
+
+<pre class="syntax html">
+&lt;!doctype html&gt;
+</pre>
+
+* Keine Versionierung mehr
+
+---
+# HTML5
+## Getting rid of the cruft
+
+<pre class="syntax html">
+&lt;meta http-equiv="content-type" content="text/html; charset=UTF-8"&gt;
+</pre>
+
+## wird zu
+
+<pre class="syntax html">
+&lt;meta charset="utf-8"&gt;
+</pre>
+
+---
+# HTML5
+## Getting rid of the cruft
+
+<pre class="syntax html">
+&lt;link type="text/css" rel="stylesheet" href="lounge.css"&gt;
+</pre>
+
+## wird zu
+
+<pre class="syntax html">
+&lt;link rel="stylesheet" href="lounge.css"&gt;
+</pre>
+
+
+---
+# HTML5
+## Getting rid of the cruft
+
+<pre class="syntax html">
+&lt;script type="text/javascript"&gt;&lt;/script&gt;
+</pre>
+
+## wird zu
+
+<pre class="syntax html">
+&lt;script&gt;&lt;/script&gt;
+</pre>
+
+
+---
+# HTML5
+## Was ist aus den Standards geworden?
+
+ * XHTML hat keine Benutzerakzeptanz gefunden
+ * Seit 1997 kein neuer HTML Standard
+  * Die Anforderungen an das Web haben sich weiterentwickelt
+ * Browser Hersteller haben unabhängig vom Standard weitergearbeitet
+  * Bildeten WHATWG (Web Hypertext Application Technology Working Group)
+  * Vorschlag für HTML5 in 2004
+ * 2006 kündigte Tim Berners-Lee (Gründer und Vorsitz W3C) neue Arbeitsgruppe
+ für HTML5 an
+  * Nutzte Fork der WHATWG
+  * Konkurrenz zum internen XHTML2 Standard
+
+
+---
+# HTML5
+## Was ist aus den Standards geworden?
+
+ * WHATWG verfolgt Versionslosigkeit
+  * "Living Standard"
+  * spricht vom "HTML Standard"
+ * W3C hingegen will stabile Momentaufnahme der Spezifikation
+  * unter dem Namen HTML5
+ * Verfasser der WHATWG Spez ist Ian Hickson
+  * Angestellter von Google, früher Netscape, dann Opera
+  * War bei der CSS 2.1 Spez Federführend
+  * Genfer
+
+---
+# Fragen zur letzten Vorlesung
+
+---
+# HTML5
+
+ * Mit HTML5 werden Web Seiten vollwertige Applikationen
+ * Nicht nur Webseiten und Formulare
+ * Dafür notwendig ist Programmierung in Javascript
+
+---
+# Javascript
+
+ * Ihr kennt schon
+  * HTML (Semantik / Struktur)
+  * CSS (Repräsentation)
+ * Es fehlt
+  * Javascript (Verhalten)
+ * Ohne JS sind Webseiten eben nur das: Statische Seiten
+ * Mit JS wird Interaktion möglich
+
+---
+# Javascript
+
+ * Demo *99\_cans\_of\_beer.html*
+
+---
+# JS - Vorgehen
+
+ 1. Schreibe HTML und JS Code (inline oder separate Dateien)
+ 1. Browser lädt Webseite
+   1. Interpretiert von oben nach unten
+   1. Baut in Model der HTML Seite, das Document Object Model (DOM)
+   1. Bei Vorkommen von JS prüft Browser auf Korrektheit
+   1. Bei Korrektheit Ausführen des Codes
+ 1. JS läuft weiter, nutzt den DOM, um mit der Seite zu interagieren
+   * Nutzt Events
+   * Gibt dem Browser Anfragen an den Server in Auftrag
+
+---
+# JS - Was kann es?
+
+ * JS ist eine vollwertige Programmiersprache
+ * Ist eine "General Purpose Language"
+ * Kann im Zweifel sogar mehr als andere
+  * Da ein Browsers Kontext zur Verfügung steht
+
+
+---
+# JS - Zuweisungen
+
+<pre class="syntax js">
+var foo = 99.6;
+var bar = 99;
+foo -= bar;
+var foobar = "this is a string";
+var ran = Math.random();
+var nothing = null;
+var boolean_true = true;
+</pre>
+
+---
+# JS - Zuweisungen
+
+ * JS benötigt keine Typen Deklaration
+  * Stichwort: Dynamic Typing
+ * Nur zu deklarieren dennoch möglich
+  * Hat dann Wert _undefined_
+ * Variablen sind Container, die viel beinhalten können
+  * dazu später mehr
+ * Typ kann von Zeile zu Zeile wechseln
+
+
+---
+# JS - Naming
+
+ * Beginne mit Buchstabe, Unterstrich oder Dollar Zeichen
+ * Dann folgen Buchstanden, Ziffern, Unterstriche und Dollar Zeichen
+ * Nutze nicht die reservierten Schlüsselwörter
+
+---
+# JS - Naming Trivia
+
+ * Welche sind nicht korrekt?
+
+<pre class="syntax js">
+var 7zip;
+var my3sons;
+var thisIsNotAJoke;
+var first-name;
+var _importantInternals;
+var ~foobar;
+var $B12$_;
+var if;
+</pre>
+
+---
+# JS - Naming
+
+ * Wählt immer semantische Namen
+  * Nicht _r_, _foo_ oder __m_
+ * Nutze *lower camel case*
+  * _twoHeadedDragonWithFire_
+ * Bibliotheken nutzen gerne Variablen, die mit _$_ beginnen
+  * Habt einen guten Grund selbst eine zu nutzen
+
+---
+# JS - Schleifen
+
+<pre class="syntax js">
+// For Schleife
+for(i = 0; i<10; i++)
+  console.log(i)
+
+// While Schleife
+while (beanCounter > 0) {
+  processBeans();
+  beanCounter--;
+}
+</pre>
+
+* Beachtet Klammerung der jeweiligen Blocks
+
+---
+# JS - Bedingungen
+
+<pre class="syntax js">
+if (isReallyCool) {
+  invite = "You're invited!";
+} else if (isPrettyCool) {
+  invite = "You're totally invited!";
+} else {
+  invite = "Sorry, we're at capacity.";
+}
+</pre>
+
+---
+# JS - Expressions
+
+<pre class="syntax js">
+// numeric
+(9/5) * tempC + 32
+
+// boolean
+2 > 3
+
+// string
+"March" + " " + "21" + "st"
+p.innerHTML
+phoneNumber.substring(0,3)
+</pre>
+
+---
+# JS - Typisierung
+
+ * JS ist dynamisch typisiert
+ * Casting wird automatisch vorgenommen
+
+<pre class="syntax js">
+// casts the integer into a string
+message = 2 + " if by sea";
+
+// casts the integer into a float, the result is 6.2
+value = 2 * 3.1;
+</pre>
+
+---
+# JS - Typisierung Vorbehalte
+
+ * JS konvertiert nicht immer so wie es intuitiv erscheint
+
+<pre class="syntax js">
+numORString1 = "3" + "4";
+numORString2 = "3" * "4";
+</pre>
+
+---
+# JS - Einbetten in Webseite
+## Drei Möglichkeiten
+
+  1. Script inline im &lt;head&gt; Element
+  1. Referenziere JS in separater Datei via URL
+  1. Quellcode im Body
+     * Inline
+     * In separater Datei
+
+---
+# JS - DOM
+
+ * Beim Laden der Seite
+  * Parsen des HTML resultiert in Document Object Model
+  * DOM ist ein Parse Tree des Markup
+ * JS kann mit Elementen des DOM
+  * interagieren
+  * sie löschen
+  * neue hinzufügen
+
+---
+# JS - DOM
+
+## Markup
+
+<pre class="syntax html">
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;&lt;/title&gt;
+    &lt;script&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;&lt;/h1&gt;
+    &lt;p&gt;&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+## DOM
+
+![](images/dom.png)
+
+
+---
+# JS - DOM
+## Auffinden von Elementen im DOM
+
+### HTML
+<pre class="syntax html">
+&lt;p id="greenplanet"&gt;
+  "Red alert: hit by phaser fire!"
+&lt;/p&gt;
+</pre>
+
+### JS
+<pre class="syntax js">
+var planet = document.getElementById("greenplanet");
+planet.innerHTML
+</pre>
+
+
+---
+# JS - DOM Manipulation
+## Welche Interaktion ist möglich?
+
+ * Elemente im DOM finden
+ * Elemente im DOM löschen
+ * Elemente kreieren und/oder zum DOM hinzufügen
+ * Attribute von Elementen
+  * lesen
+  * löschen
+  * hinzufügen
+
+---
+# JS - Onload
+
+ * Meist ist es sinnvoll JS erst nach vollständigem Laden zu starten
+ * Ansonsten gibt es die gesuchten Elemente noch nicht im DOM
+
+<pre class="syntax js">
+&lt;script&gt;
+  // first wrap the code in a function
+  function init() {
+    var planet = document.getElementById("greenplanet");
+    planet.innerHTML = "Red alert: hit by phaser fire!";
+  }
+
+  // then call that function when the browser is done loading
+  window.onload = init;
+&lt;/script&gt;
+</pre>
+
+---
+# JS - Arrays
+
+ * Arrays können verschiedene Datentypen enthalten
+
+<pre class="syntax js">
+var y = new Array();
+y[0] = 3;
+y[1] = 4.2;
+
+// or the shorter way (a so called 'literal array')
+var y  = [ 1, 2, "foo", 4.2];
+
+alert(y.length)
+</pre>
+
+---
+# JS - Arrays
+
+ * Code Demo _phrase\_o\_matic.html_
+ * Phrasen in's nächste Geschäfts Meeting mitnehmen!
+
+
+---
+# JS - Interaktion
+
+ * Bisher noch keine Interaktion mit dem Benutzer
+ * Demo _plain_/_playlist.html_. Neu darin:
+  * &lt;form&gt; Tag (Formulare)
+  * Eingabefeld mit HTML5 Placeholder
+  * Benutzer Eingabe lesen und validieren
+  * Alert Box
+  * Neue Elemente in DOM einfügen
+
+---
+# JS - Demo _plain_/_playlist.html_
+## Vorgehen
+
+ 1. Erstelle Markup
+   * Input Feld
+   * 'Add' Button
+   * Leere unsortierte Liste
+ 1. Event Handler auf Button legen
+ 1. Hole _onclick_ Benutzereingabe
+  * Validierung, ob Eingabe vorhanden
+ 1. Hole _onclick_ Benutzereingabe
+ 1. Erzeuge neues Listen Element
+ 1. Füge dieses der bestehenden Liste hinzu
+
+---
+# JS - Demo _plain_/_playlist.html_
+
+ * Was passiert on Reload?
+
+---
+# JS - Local Storage vs. Cookies
+
+ * Früher gab es nur das Browser Cookie
+  * Begrenzung auf 4KB Speicherplatz
+  * Wurde vom Server mitgeschickt
+  * Dieses Cookie wird dann vom Client beim nächsten Request zurückgesandt
+  * Dadurch ist Server in der Lage zu personalisieren
+     * Etwa gut geeignet für Sessions und Spracheinstellung
+     * Nicht gut geeignet für Bulk Data
+
+---
+# JS - Local Storage vs. Cookies
+
+ * HTML5 gibt eine JS API zum Speichern von Key/Value Paaren
+ * Local Storage ist
+  * Grösser
+  * Dafür gedacht die Kommunikation mit dem Server zu reduzieren
+        * => Geschwindigkeit
+
+---
+# JS - Local Storage
+
+ * Browser kann einen oder viele Key Value Paare pro Domain speichern
+ * Später wird der Datensatz mittels Key abgerufen
+
+
+---
+# JS - Demo _persistent_/_playlist.html_
+
+ * Erweiterung der App um Persistenz HTML5-Style
+ * Integration von Local Storage
+ * Demo _persistent_/_playlist.html_
+  * nur grob durcharbeiten, Vertiefung ist Selbststudium
+
+---
+# JS - Demo Chrome
+
+ * Chrome Resources Local Storage
+
+
+![](images/localstorage_chrome.png)
+
+---
+# JS - Local Storage
+## Vertiefung
+
+ * Teil des Selbststudiums
+ * Lese Kapitel 9 in "Head First HTML5 Programming"
+ * Alternatives freies Buch mit Kapitel zum Thema:
+  * [diveintohtml5.info](http://diveintohtml5.info/storage.html)
+
+---
+# JS - Probleme
+
+ * JS ist eine Sprache, kein Framework
+ * Features verhalten sich unterschiedlich in Browsern
+ * Zum Teil viel redundanter Code notwendig für einfache Aufgaben
+  * Ajax
+  * Feature Detection
+  * DOM Manipulation / Element Selektion
+
+---
+# JS - Enter jQuery
+
+<blockquote>
+jQuery is a fast and concise JavaScript Library that simplifies HTML document
+traversing, event handling, animating, and Ajax interactions for rapid web
+development. jQuery is designed to change the way that you write JavaScript.
+</blockquote>
+
+
+jquery.com
+
+---
+# JS - Enter jQuery
+
+ * Cross-Browser Kompatibilität
+ * Schnell und leichtgewichtig (32kb, minified, gzipped)
+ * Gute Lernkurve + gute Dokumentation
+ * Riesige Community => Plugins
+   * darunter jQuery UI
+ * CSS3 Selektoren
+ * Verbreitete Adoption
+
+---
+# JS - _playlist.html_ mit jQuery
+
+## Plain Javascript
+
+<pre class="syntax js">
+var songName = document.getElementById("songTextInput").value;
+</pre>
+
+## Mit jQuery
+<pre class="syntax js">
+var songName = $("#songTextInput").value;
+</pre>
+
+---
+# JS - _playlist.html_ mit jQuery
+
+## Plain Javascript
+<pre class="syntax js">
+var li = document.createElement("li");
+li.innerHTML = songName;
+var ul = document.getElementById("playlist");
+ul.appendChild(li);
+</pre>
+
+## Mit jQuery
+<pre class="syntax js">
+$("#playlist").append('&lt;li&gt;' + songName + '&lt;/li&gt;')
+</pre>
+
+
+---
+# JS - _playlist.html_ mit jQuery
+
+## Plain Javascript
+<pre class="syntax js">
+button = document.getElementById("addButton");
+button.onclick = handleButtonClick;
+</pre>
+
+
+## Mit jQuery
+<pre class="syntax js">
+$("#addButton").click(handleButtonClick);
+</pre>
+
+---
+# JS - Funktionen
+
+ * Syntax ähnlich zu Java
+ * Allerdings keine Typen, keine Klassensichtbarkeit
+ * Schlüsselwort _function_
+
+<pre class="syntax js">
+function bark(dogName, dogWeight) {
+  if (dogWeight <= 10) {
+    return dogName + " says Yip";
+  } else {
+    return dogName + " says Woof";
+  }
+}
+</pre>
+
+---
+# JS - Scope
+
+ * Scope ist ähnlich wie in Java
+  * Ausserhalb einer Funktion deklariert bedeutet global
+  * Innerhalb einer Funktion deklariert bedeutet lokal
+ * Ausnahme _var_ Keyword
+  * Ohne _var_ Keyword deklariert bedeutet immer global
+
+<pre class="syntax js">
+function t() { y = 6; }
+t();
+// returns 6, not undefined
+console.log(y);
+</pre>
+
+---
+# JS - Coding Challenge
+## Fizz Buzz
+
+ * Denkt zurück an eure Jugend und an Trinkspiele
+
+---
+# JS - Coding Challenge
+## Fizz Buzz Regeln
+
+* Spieler sitzen im Kreis
+* Der erste Spieler sagt '1'
+* In der Reihe herum steigen die Zahlen
+* Alle Zahlen, welche ohne Rest teilbar durch 3, ersetzen durch 'fizz'
+* Alle Zahlen, welche ohne Rest teilbar durch 5, ersetzen durch 'buzz'
+* Alle Zahlen, welche ohne Rest teilbar durch 3&5, ersetzen durch 'fizzbuzz'
+
+---
+# JS - Coding Challenge
+
+## Anfang des Spieles
+<blockquote>
+1, 2, fizz, 4, buzz, fizz, 7, 8, fizz, buzz, 11, fizz, 13, 14, fizzbuzz, 16,
+17, fizz, 19, buzz, fizz, 22, 23, fizz, buzz, 26, fizz, 28, 29, fizzbuzz,
+31, 32, fizz, 34, buzz, fizz, ...
+</blockquote>
+
+---
+# JS - Coding Challenge
+
+ * Einmal in der Runde spielen
+
+---
+# JS - Coding Challenge
+
+ * Und dann ausprogrammieren
+ * Ziel ist eine Funktion mit folgender Ausgabe
+
+<pre class="syntax js">
+console.log(fizzbuzz(10));
+// [ 1, 2, 'Fizz', 4, 'Buzz', 'Fizz', 7, 8, 'Fizz', 'Buzz' ]
+</pre>
+Straight Forward Musterlösung in _fizzbuzz.js_
+
+---
+# Aufgaben
+
+ * Durcharbeiten HTML5 Localstorage (s.o.)
+ * Durcharbeiten [jQuery - "How jQuery Works"](http://docs.jquery.com/How_jQuery_Works)
+
+## Weiteres
+ * Projektarbeit kommt in der nächsten Stunde
+
+---
+# Fragen zur letzten Vorlesung
+
+ * Wie war's?
+ * Coding Callenges (Fizzbuzz) gemacht?
+
+---
+# Termine (letztes Jahr)
+
+ * Klausur in KW24
+ * Projektarbeit Abgabe am Montag in KW24 (12.06.)
+
+---
+# Projektarbeit
+
+ * Projektarbeit Abgabe in ~ KW24
+ * Erstelle Todo Applikation mit
+   * Navigation, Footer, About und Contact
+   * Logo
+   * Priorität (reflektiert in Farbe des Todos)
+   * Persistierende Todos (Localstorage)
+   * [jQuery Datepicker](http://jqueryui.com/demos/datepicker/) (Bonuspunkte)
+   * Layout mit [Twitter Bootstrap](http://twitter.github.com/bootstrap/) (Bonuspunkte)
+
+---
+# Projektarbeit
+
+![](images/projektarbeit_1.png)
+
+---
+# Projektarbeit
+
+ * Abgabe Link zur Projektarbeit in Online Spreadsheet:
+  * [Link Google Doc](https://docs.google.com/spreadsheet/ccc?key=0AgxGPCIUYkdtdE10RWJId2hpaFFtTE1uS0p2cjBsREE)
+  * Editing is Public, no Google Account needed
+
+---
+# NodeJS
+
+ * [Link zu NodeJS](http://nodejs.org/)
+ * Platform auf Chrome Javascript Runtime
+ * Serverbasiertes Javascript
+ * Non-blocking IO
+
+---
+# Funktionen
+
+## Funktionen sind Werte
+
+<pre class="syntax js">
+function addOne(num) { return num + 1; }
+var plusOne = addOne;
+var result = plusOne(1);
+</pre>
+
+## Anonyme Funktionen
+<pre class="syntax js">
+function(num) { return num + 1; }
+var f = function(num) { return num + 1; }
+var result = f(1);
+alert(result);
+</pre>
+
+---
+# Funktionen
+## Warum sind Funktionen Werte?
+
+ * Speichern in Variablen, Arrays
+ * Übergeben als Argumente an Funktionen
+ * Als Eigenschaft einem Objekt zuweisen
+
+---
+# Funktionen
+
+<pre class="syntax js">
+// Funktion als Wert
+function init() {
+  alert("you rule!");
+}
+window.onload = init;
+
+// Oder cooler
+window.onload = function() { alert("you rule!"); }
+</pre>
+
+---
+# Javascript Objects
+
+ * Objekte in JS sind nur eine Sammlung von Eigenschaften
+
+<pre class="syntax js">
+var fido = {
+  name: "Fido",
+  weight: 40,
+  breed: "Mixed",
+  loves: ["walks", "fetching balls"]
+};
+</pre>
+
+---
+# Javascript Objects
+
+## Zugriff mit 'Punkt' Notation
+
+<pre class="syntax js">
+if (fido.weight > 25) {
+  alert("WOOF");
+} else {
+  alert("yip");
+}
+</pre>
+
+---
+# Javascript Objects
+
+## Zugriff mit 'String und Index' Notation
+
+<pre class="syntax js">
+var breed = fido["breed"];
+if (breed == "mixed") {
+  alert("Best in show");
+}
+</pre>
+
+---
+# Javascript Objects
+
+## Aufzählen aller Properties
+
+<pre class="syntax js">
+var prop;
+for (prop in fido) {
+  console.log("Fido has a " + prop + " property ");
+  if (prop == "name") {
+    console.log("This is " + fido[prop]);
+  }
+}
+</pre>
+
+---
+# Javascript Objects
+
+## Eigenschaften sind dynamisch
+
+<pre class="syntax js">
+// Hinzufügen einer Eigenschaften
+fido.age = 5;
+
+// Löschen der Eigenschaft
+delete fido.age;
+
+// Danach
+fido.age == undefined == true
+</pre>
+
+---
+# Javascript Objects Method Chaining
+
+<pre class="syntax js">
+fido.loves.length
+</pre>
+
+  * Schrittweise Evaluation
+   * 'fido' evaluiert zum Objekt
+   * 'loves' evaluiert zur Eigenschaft, welche ein Array ist
+   * 'length' evaluiert zur Länge des vorigen Arrays
+
+
+---
+# Javascript Objects Verhalten
+
+ * Funktionen können direkt als Objekt Eigenschaft definiert werden
+
+<pre class="syntax js">
+var fido = { name: "Fido",
+  weight: 40,
+  breed: "Mixed",
+  loves: ["walks", "fetching balls"],
+  bark: function() {
+    console.log("Woof, woof!");
+  }
+};
+</pre>
+
+ * Bemerke: _bark()_ ist eine anonyme Funktion
+ * Nomenklatur: Funktionen in Objekten sind "Methoden"
+
+---
+# Javascript - this
+
+ * Funktion _bar()_ ist nicht ausführbar
+  * warum?
+
+<pre class="syntax js">
+var x = {
+ foo: 5,
+ bar: function() { console.log(foo); }
+}
+</pre>
+
+
+---
+# Javascript - this
+
+ * JS benötigt den Scope des aufgerufenen Objektes
+
+<pre class="syntax js">
+var x = {
+ foo: 5,
+ bar: function() { console.log(this.foo); }
+}
+</pre>
+
+---
+# JS Call by Reference/Value
+
+ * Trivia: Wer kennt den Unterschied?
+
+---
+# JS Call by Reference/Value
+
+ * Objects werden per 'Call by reference' übergeben
+   * Änderungen innert einer Funktion reflektieren im Original-Objekt
+ * Primitives werden per 'Call by value' übergeben
+   * Änderungen innert einer Funktion reflektieren im Original-Objekt nicht
+
+---
+# JS - Constructor
+
+<pre class="syntax js">
+function Cat(type, feature) {
+  this.type = type;
+  this.feature = feature;
+}
+var lolcat = new Cat("lol", "INVISIBLE BIKE");
+</pre>
+
+![](images/lolcat_invisible_bike.jpg)
+
+---
+# JS - Objects
+
+ * Objekte sind in JS allgegenwärtig
+ * _window_, _document_ sind ebenfalls Objekte
+  * _window.location_
+  * _window.onload_
+  * _document.title_
+  * _document.URL_
+
+---
+# Geolocation
+
+ * Ausfindig machen der Position des Benutzers
+ * Dadurch personalisiertes, interessantes Web-Erlebnis
+  * Etwa Restaurant Bewertungen in der Nähe
+
+---
+# Geolocation
+
+ * Position wird berechnet anhand der
+   * _geodätischen Breite_  (Latitude)
+   * _geodätischen Länge_  (Longitude)
+ * _Latitude_: Abstand Nord/Süd vom Equator
+ * _Longitude_: Abstand Ost/West von Greenwich, England
+
+---
+# Geolocation
+
+![](images/latitude_longitude.png)
+
+---
+# Geolocation - Triangulation
+
+ * Nicht nur aktuelle Smartphones sind location-aware
+ * Möglichkeiten für Positionsfindung
+  * GPS
+  * IP
+  * Cell Tower Triangulation
+  * Wifi
+
+---
+# Geolocation - Triangulation
+
+ * Welche wird genutzt?
+  * Ist Browser-Sache, wird nicht propagiert
+  * Aber API propagiert Genauigkeit in Metern
+  * Smartphones nutzen erst Cell Towers, dann GPS
+
+---
+# Geolocation - ohne Map
+
+ * Demo in Javascript, ohne Map
+
+---
+# Geolocation - mit Map
+
+ * Demo mit Map
+
+---
+# Geolocation - Google Maps
+
+ * Maps hat eine Menge Zusatzfunktionen
+ * Controls (Zoom, Pan, Map/Satellite/Street View)
+ * Services (Directions, Distance, ..)
+ * Overlays (etwa Heat Map für Verkehr)
+
+---
+# Geolocation - Weiteres
+
+  * Mehr dazu in
+   * "Head First HTML5 Programming" Kapitel 5
+   * [http://diveintohtml5.info/geolocation.html](http://diveintohtml5.info/geolocation.html)
+
+---
+# Demo: Twitter Bootstrap
+
+ * [http://twitter.github.com/bootstrap/](http://twitter.github.com/bootstrap/)
+
+---
+# Demo
+
+ * Chrome Inspector / Firebug
+
+</code>
+
+<script>
+  $(".presentation").each(function() {
+    var markup = new Showdown.converter().makeHtml($(this).html());
+    var slides = markup.split('<hr />');
+    for (var j = 0; j < slides.length; j++)
+    document.write('<div class=slide>' + slides[j] + '</div>');
+  });
+  $(".presentation").remove();
+  w3c_slidy.add_listener(document.body, "touchend", w3c_slidy.mouse_button_click);
+  $.syntax();
+</script>
+</body>
+</html>
