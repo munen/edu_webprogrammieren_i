@@ -1020,7 +1020,7 @@ index.html
   * Unterstützung von Echtfarben
 
 ---
-# Alternative
+# Alt Attribut
 
  * Alternativtext für Bilder
  * Beschreibung == Semantik
@@ -1048,39 +1048,44 @@ index.html
 ---
 # Thumbnails
 
- * Demo
+ * Im Zweifel auf index Seiten nicht zu viele grosse Bilder anzeigen
+  * Auch nicht mit CSS verkleinern
+  * Kostet viel Bandbreite, macht das Laden der Seite langsam
+  * Statt dessen: Thumbnails nutzen
+ * Demo (Verzeichnis images/ und images/thumbnails)
 
 ---
-# HTML Standards, die erste
+# HTML Standards
 ##HTML 1.0-2.0
 
   * 1989-1991
   * Hypertext
   * Repräsentation unwichtig
-  * "Home Pages" mit Kram
+  * Zeit der sog. *Home Pages*
 
 ---
-# HTML Standards, die erste
+# HTML Standards
 ##HTML 3
 
 
   * 1995
-  * Mosaic, Lynx, ...
+  * Einfache Browser: Mosaic, Lynx, ...
   * [Browser wars](http://en.wikipedia.org/wiki/Browser_wars)
    * Netscape vs. Microsoft
    * Beide fügten proprietäre Erweiterungen zu Browsern hinzu
-   * => Entwickler bauten *zwei* Webseiten
+   * => Entwickler bauten _zwei_ Webseiten
 
 
 ---
-# HTML Standards, die erste
+# HTML Standards
 ##HTML 3
+### Mosaic Browser
 
 ![](images/mosaic.gif)
 
 
 ---
-# HTML Standards, die erste
+# HTML Standards
 ##HTML 4
 
  * 1998
@@ -1090,16 +1095,16 @@ index.html
  * Trennung von Struktur und Repräsentation
 
 ---
-# HTML Standards, die erste
+# HTML Standards
 ##HTML 4.01
 
  * 1999
  * ist der aktuelle HTML Standard
  * entspricht nur kleinen Änderungen zu HTML 4.0
- * sprechen alle Browser
+ * Unterstützung: alle Browser
 
 ---
-# HTML Standards, die erste
+# HTML Standards
 ##XHTML 1.0
 
  * 2000
@@ -1108,7 +1113,7 @@ index.html
   * [SGML](http://de.wikipedia.org/wiki/Standard_Generalized_Markup_Language) == Standard Generalized Markup Langauge
   * SGML ist in DIN und EN definiert
  * XHTML ist eigentlich tot, dazu später mehr
-  * Und glaubt dem Buch nicht, dass HTML5 nicht kommen wird..
+  * Und glaubt dem Head First Buch nicht, dass HTML5 nicht kommen wird..
   * Kapitel 7 nur aus historischen Gründen lesen
 
 ---
@@ -1119,7 +1124,7 @@ index.html
   * weiss dann wie das Dokument zu interpretieren ist
 
 <pre class="syntax html">
-&lt;!DOCTYPE HTML PUBLIC “-//W3C//DTD HTML 4.01 Transitional//EN” “http://www.w3.org/TR/html4/loose.dtd”&gt;
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"&gt;
 </pre>
 
  * Ja, die Zeile ist exorbitant hässlich
@@ -1154,7 +1159,7 @@ index.html
 ## Doctype
 
 <pre class="syntax html">
-.. “-//W3C//DTD HTML 4.01 Transitional//EN” ...
+.. “-//W3C//DTD HTML 4.01//EN” ...
 </pre>
 
  * Verwandt wird HTML 4.01
@@ -1165,7 +1170,7 @@ index.html
 ## Doctype
 
 <pre class="syntax html">
- .. “http://www.w3.org/TR/html4/loose.dtd”&gt;
+ .. “http://www.w3.org/TR/html4/strict.dtd”&gt;
 </pre>
 
  * DTD == Document Type Definition (re SGML)
@@ -1190,7 +1195,7 @@ index.html
 ## Doctype
 
  * HTML 4.01 Deklaration bedeutet nicht zwingend korrekten Einsatz
- * Demo W3C Validator
+ * Demo [W3C Validator](http://validator.w3.org/)
   * Adressen
   * Files
   * Bulk text
@@ -1202,14 +1207,10 @@ index.html
  * meta == Information *über* die Seite
 
 <pre class="syntax html">
-&lt;meta http-equiv=”Content-Type” content=”text/html; charset=ISO-8859-1”&gt;
+&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"&gt;
 </pre>
 
-
----
-# Super, noch so eine hässliche Zeile!
-
-![](images/facepalm.jpg)
+ * Damit funktionieren auch die Umlaute in der Seite
 
 ---
 # Content Type
@@ -1223,28 +1224,17 @@ index.html
 # W3C Validator
 ## one more time
 
+ * Demo: Fehlerfreie minimale Webseite
+
 ---
 # DOCTYPE
 ## transitional vs. strict
 
- * transitional == Validierung gegen neue Syntax
+ * 'strict' bedeuet nur HTML 4.01 Code ist erlaubt
+ * 'transitional' == Validierung gegen neue Syntax
   * erlaubt aber legacy (historischen) Code
- * strict bedeuet nur HTML 4.01 Code ist erlaubt
-
----
-# DOCTYPE strict
-
-<pre class="syntax html">
-&lt;!DOCTYPE html PUBLIC “-//W3C//DTD HTML 4.01//EN” “http://www.w3.org/TR/html4/strict.dtd”&gt;
-</pre>
-
-&nbsp;
-
- * NB: Kein 'transitional' mehr
-
----
-# W3C Validator
-## Imernoch valider HTML Code?
+ * 'transitional' interpretieren moderne Browser entgegen der Spezifikation
+ jedoch so, dass sie HTML5 rendern
 
 ---
 # Unterschiede strict vs. transitional
@@ -1255,26 +1245,25 @@ index.html
  * Keine Block Elemente in &lt;p&gt;
  * Folgende Elemente verboten:
   * &lt;center&gt;, &lt;font&gt;, &lt;iframe&gt;, &lt;strike&gt;
- * Folgende Attribute sin verboten:
+ * Folgende Attribute sind verboten:
   * align, background, bgcolor, border, height/width, ...
 
 ---
 # Und sonst?
 
- * Keine Sorge, und sonst haben wir bisher 'strict'ten HTML Code geschrieben
+ * Keine Sorge, ansonsten haben wir bisher 'strict'ten HTML Code geschrieben
 
 ---
 # CSS
 
- * Bisher recht anstrengend
-  * Semantik
+ * Die letzten Folien waren recht anstrengend
+  * Pochen auf Semantik vs. Repräsentation
   * Validierungen
   * HTML Standards
-  * pfffff......
+  * => Nur Theorie
  * Jetzt kommt etwas Farbe rein!
 
-# CSS
-## Beispiel
+## CSS Regel Beispiel
 
 <pre class="syntax css">
 p { background-color: red; }
@@ -1299,14 +1288,14 @@ p { background-color: red; }
   * Einbinden in HTML Seite
   * Verschiedene Selektoren
   * Mehrere Selektoren mit gleichen Regeln
-     * Und Ausnahmen davon für einzelne Selektoren
+     * Und Ausnahmen davon für einzelne (spezfischere) Selektoren
 
 ---
 # CSS
 ## Einbinden in externes Stylesheet
 
 <pre class="syntax html">
-&lt;link type=”text/css” rel=”stylesheet” href=”hszt_style.css” /&gt;
+&lt;link type="text/css" rel="stylesheet" href="zhaw_style.css" /&gt;
 </pre>
 
 ---
@@ -1346,7 +1335,7 @@ html
 # CSS
 ## Inheritance (Vererbung)
 
- * Überschreiben der Vererbungshierarchie
+ * Überschreiben in der Vererbungshierarchie
 
 <pre class="syntax css">
 p { color: red; }
@@ -1365,27 +1354,38 @@ html
   * Bisheriger _p_ Selektor greift für alle Paragraphen
   * Unterschiedliche Styles für gleichnamige Elemente: _class_ Attribut
 
-
----
-# CSS
-
-<pre class="syntax css">
-q.important { font-family: "Hoefler Text", serif; color: OliveDrab; }
-q.not_important { font-family: "Comic Sans MS", cursive; color: SaddleBrown ; }
-</pre>
-css
-
-<pre class="syntax html">
-&lt;p&gt;&lt;q class="important"&gt;Find a job you love and you'll never work a day in your life.&lt;/q&gt;[Confuzius]&lt;/p&gt;
-&lt;p&gt; &lt;q class="not_important"&gt;Zeit ist Geld.&lt;/q&gt;[Benjamin Franklin]&lt;/p&gt;
-</pre>
-html
-
 ---
 # CSS
 ## Unterschiedliche Styles, gleiche Elemente
 
  ![](images/quotes.jpg)
+
+
+---
+# CSS
+## Unterschiedliche Styles, gleiche Elemente
+
+<pre class="syntax css">
+q.important {
+  font-family: "Hoefler Text", serif; color: OliveDrab;
+}
+q.not_important {
+  font-family: "Comic Sans MS", cursive; color: SaddleBrown;
+}
+</pre>
+css
+
+<pre class="syntax html">
+&lt;p&gt;
+  &lt;q class="important"&gt;Find a job you love and you'll never work a day in your life.&lt;/q&gt;
+[Confuzius]
+&lt;/p&gt;
+&lt;p&gt;
+  &lt;q class="not_important"&gt;Zeit ist Geld.&lt;/q&gt;
+[Benjamin Franklin]
+&lt;/p&gt;
+</pre>
+html
 
 ---
 # CSS
@@ -1476,7 +1476,7 @@ p.blueberry { color: purple; }
 
 ---
 # CSS
-## Einige wichtigV Property Types
+## Einige wichtige Property Types
 
  * top: Positionierung des Elementes von oben gesehen
  * left: Positionierung des Elementes von links gesehen
@@ -1549,7 +1549,6 @@ body {
  * Schriftarten mit Serifen
  * Elegant, traditionell
  * Assoziiert mit Schriftart aus Zeitungen
- *
 
 ---
 # CSS
@@ -1563,7 +1562,7 @@ body {
 
  * Schriftarten mit gleich breiten Zeichen
   * Ein 'i' beansprucht gleich viel Platz wie ein 'm'
-  * Verwandt für Quellcode Beispiele
+  * Verwandt etwa für Quellcode Beispiele
  * Wie auf Schreibmaschine
 
 ---
@@ -1593,7 +1592,6 @@ body {
  * Schriftart mit dekorativen Schriften
  * Sind häufig nicht auf Rechnern verfügbar
   * Verfügbarkeit allgemein ist abhängig vom OS
-  * Werden daher selten in seriösen Web Designs genutzt
 
 ---
 # CSS
@@ -1613,15 +1611,17 @@ body { font-family: Verdana, Geneva, Arial, sans-serif; }
 ## Font Family Auflösen
 
   * Browser prüft vorne anfangend, ob Schriftart verfügbar ist
-     * Liste Schriften kann beliebig lang sein
-       * Auch 0 ist erlaubt
-       * Dann wird generische Schriftart genommen
+  * Liste Schriften kann beliebig lang sein
+    * Auch 0 ist erlaubt
+    * Dann wird generische Schriftart genommen
 
 ---
 # CSS
 ## Vorgehen Schriften
 
  * Kontrolle von installierten Schriftarten nicht möglich
+  * Ist nicht ganz korrekt, in guten Browsern geht es mit
+    [@font-face](https://developer.mozilla.org/en-US/docs/CSS/@font-face)
  * Für konsistentes Design möglichst immer Alternativen anzugeben
 
 
@@ -1830,18 +1830,12 @@ p.percent { color: rgb(100%, 0%, 0%); }
 #333333 #666666 #999999 #cccccc
 </pre>
 
----
-# Fragen
-
-## Zur letzten Vorlesung?
-## Zur vorletzten Vorlesung?
-
 
 ---
 # Das Box Modell
 ## Struktur von inline und block Elementen
 
- * Frage: Was waren inline und block Elemente?
+ * Trivia: Was waren inline und block Elemente?
  * Das Box Modell beschreibt wie CSS Elemente sieht
  * CSS behandelt jedes Element als sei es eine Box
   * Jedes Element hat eine Fläche für Inhalt
@@ -1868,10 +1862,10 @@ p.percent { color: rgb(100%, 0%, 0%); }
  * Paddings und Margins können auf jeder Seite unterschiedlich sein
 
 <pre class="syntax css">
-padding-top:25px;
-padding-right:50px;
-padding-bottom:25px;
-padding-left:50px;
+padding-top:    25px;
+padding-right:  50px;
+padding-bottom: 25px;
+padding-left:   50px;
 </pre>
 
 ---
