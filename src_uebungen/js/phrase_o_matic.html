@@ -9,7 +9,7 @@
         }</style>
       <script>
         // function definition in js
-        function makePhrases() {
+        function buildPhrase() {
           var words1 = ["24/7", "multi-Tier", "30,000 foot", "B-to-B", "win-win"];
           var words2 = ["empowered", "value-added", "oriented", "focused", "aligned"];
           var words3 = ["process", "solution", "tipping-point", "strategy", "vision"];
@@ -21,13 +21,21 @@
 
           var phrase = words1[rand1] + " " + words2[rand2] + " " + words3[rand3];
 
+          return phrase;
+        }
+
+        function init() {
+          writePhrase(buildPhrase())
+        }
+
+        function writePhrase(phrase) {
           // get paragraph to inject the generated phrase
           var phraseElement = document.getElementById("phrase");
           phraseElement.innerHTML = phrase;
         }
 
         // generate a phrase when browser is done loading
-        window.onload = makePhrases;
+        window.onload = init;
       </script>
     </head>
     <body>
