@@ -3007,12 +3007,28 @@ alert(y.length)
  * Browser kann einen oder viele Key Value Paare pro Domain speichern
  * Später wird der Datensatz mittels Key abgerufen
 
+---
+# Fragen letzte Stunde?
+
+---
+# Auflösung von Fragen letztes Mal
+
+ * Pseudo Selektoren jenseits von anchor (visited/hover/active)
+  * [Liste](http://kimblim.dk/css-tests/selectors/)
+
+---
+# Termine
+
+ * Klausur: Morgen zur üblichen Zeit
+   * Offline, ohne Hilfsmaterialien
+   * Fragen?
+ * Zweiter Ausweichtermin: 11.06., Raum 02.08. (falls nicht frei:  O5.06.)
 
 ---
 # JS - Demo _persistent_/_playlist.html_
 
  * Erweiterung der App um Persistenz HTML5-Style
- * Integration von Local Storage
+   * Integration von Local Storage
  * Demo _persistent_/_playlist.html_
   * nur grob durcharbeiten, Vertiefung ist Selbststudium
 
@@ -3031,13 +3047,14 @@ alert(y.length)
  * Teil des Selbststudiums
  * Lese Kapitel 9 in "Head First HTML5 Programming"
  * Alternatives freies Buch mit Kapitel zum Thema:
-  * [diveintohtml5.info](http://diveintohtml5.info/storage.html)
+  * [diveintohtml5.info/storage.html](http://diveintohtml5.info/storage.html)
 
 ---
 # JS - Probleme
 
  * JS ist eine Sprache, kein Framework
  * Features verhalten sich unterschiedlich in Browsern
+  * Beispiel: window.onload
  * Zum Teil viel redundanter Code notwendig für einfache Aufgaben
   * Ajax
   * Feature Detection
@@ -3064,7 +3081,13 @@ jquery.com
  * Riesige Community => Plugins
    * darunter jQuery UI
  * CSS3 Selektoren
- * Verbreitete Adoption
+
+---
+# Jquery Adoption
+
+![](images/jquery_statistics.jpg)
+
+Quelle: [http://trends.builtwith.com/javascript/jQuery](http://trends.builtwith.com/javascript/jQuery)
 
 ---
 # JS - _playlist.html_ mit jQuery
@@ -3132,11 +3155,9 @@ function bark(dogName, dogWeight) {
 ---
 # JS - Scope
 
- * Scope ist ähnlich wie in Java
-  * Ausserhalb einer Funktion deklariert bedeutet global
-  * Innerhalb einer Funktion deklariert bedeutet lokal
- * Ausnahme _var_ Keyword
-  * Ohne _var_ Keyword deklariert bedeutet immer global
+ * Ausserhalb einer Funktion deklariert bedeutet global
+ * Innerhalb einer Funktion deklariert bedeutet lokal
+ * Ohne _var_ Keyword deklariert bedeutet immer global
 
 <pre class="syntax js">
 function t() { y = 6; }
@@ -3190,20 +3211,6 @@ console.log(fizzbuzz(10));
 Straight Forward Musterlösung in _fizzbuzz.js_
 
 ---
-# Aufgaben
-
- * Durcharbeiten HTML5 Localstorage (s.o.)
- * Durcharbeiten [jQuery - "How jQuery Works"](http://docs.jquery.com/How_jQuery_Works)
-
----
-# NodeJS
-
- * [Link zu NodeJS](http://nodejs.org/)
- * Platform auf Chrome Javascript Runtime
- * Serverbasiertes Javascript
- * Non-blocking IO
-
----
 # Funktionen
 
 ## Funktionen sind Werte
@@ -3216,11 +3223,17 @@ var result = plusOne(1);
 
 ## Anonyme Funktionen
 <pre class="syntax js">
-function(num) { return num + 1; }
-var f = function(num) { return num + 1; }
-var result = f(1);
-alert(result);
+$("#clickme").click(function() {
+  alert($("#readme").val());
+  return false;
+  }
+)
 </pre>
+
+
+<input id="readme">
+<button id="clickme" class="btn">clickme</button>
+
 
 ---
 # Funktionen
@@ -3240,7 +3253,7 @@ function init() {
 }
 window.onload = init;
 
-// Oder cooler
+// Als anonyme Funktion
 window.onload = function() { alert("you rule!"); }
 </pre>
 
@@ -3471,6 +3484,21 @@ var lolcat = new Cat("lol", "INVISIBLE BIKE");
   * Mehr dazu in
    * "Head First HTML5 Programming" Kapitel 5
    * [http://diveintohtml5.info/geolocation.html](http://diveintohtml5.info/geolocation.html)
+
+---
+# Aufgaben
+
+ * Durcharbeiten HTML5 Localstorage, Geolocation (s.o.)
+ * Durcharbeiten [jQuery - "How jQuery Works"](http://docs.jquery.com/How_jQuery_Works)
+ * Fizzbuzz ausprogrammieren
+
+---
+# NodeJS
+
+ * [Link zu NodeJS](http://nodejs.org/)
+ * Platform auf Chrome Javascript Runtime
+ * Serverbasiertes Javascript
+ * Non-blocking IO
 
 ---
 # Demo: Twitter Bootstrap
